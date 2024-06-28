@@ -1,0 +1,90 @@
+###Código para hacer scrap y rescatar costos de los FFMM
+
+library(tidyverse)
+library(RSelenium)
+library(netstat)
+library(lubridate)
+library(stringr)
+library(future.apply)
+
+tictoc::tic("Tiempo de descarga TAC") ##Revisar tiempo execute
+
+#Para ver versión a usar del chromedriver
+chd <- binman::list_versions("chromedriver")
+
+#Iniciar el servidor
+rs_driver_object <- rsDriver(browser = "chrome",
+                             chromever = chd[["win32"]][[4]],
+                             verbose = FALSE,
+                             port = free_port())
+
+# crear un objeto "cliente"
+remDr <- rs_driver_object$client
+
+{
+# abrimos navegador
+#remDr$open()
+
+# maximizar ventana
+# remDr$maxWindowSize()
+}
+
+#abrir una pagina web
+remDr$navigate(
+  "https://www.cmfchile.cl/institucional/estadisticas/fmdfm_consulta1.php"
+  )
+
+### buscamos elementos html
+month <- remDr$findElement(
+  "xpath", 
+  "/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[3]/select[1]")
+
+year <- remDr$findElement(
+  "xpath", 
+  "/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[3]/select[2]")
+
+consultar <- remDr$findElement(
+  "xpath", 
+  "/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[4]/input")
+
+
+#### Seteamos Consulta
+inicio <- ymd("2015-01-01") #### Cambiar fechas de acuerdo a
+fin  <- ymd("2024-02-01")  #### plazos consulta requerida
+
+mmyy <- seq(inicio, fin, by = "month")
+
+## Definimos funcion de scrap
+scrap <- function(date){
+  
+  month$sendKeysToElement(list(str_to_title(format(date, "%B")))) 
+  
+  year$sendKeysToElement(list(format(date, "%Y")))
+  
+  consultar$clickElement()
+  
+  #nombre del archivo descargado cambia según día, REVISAR
+  ## CERCIORARSE QUE LA CARPETA NO CONTENGA ARCHIVOS DESCARGADOS
+  ## DE COSTOS DEL MISMO DIA O NO FUNCIONARA BIEN
+  
+  Sys.sleep(5) ### Pausa para que se alcance a descargar el archivo
+               ### Si no se alcanza a descargar falla fx posterior
+              ### Valor va a depender velocidad internet y chrome
+  
+  file.rename(
+    str_c(
+      "C:/Users/Martin/Downloads/costosffmm", 
+      format(Sys.Date(), "%Y%m%d"),
+      ".xls"),
+    str_c("E:/R/test_rselenium/TAC_Rsel/", 
+          format(date, "%Y%m"), 
+          ".xls"))
+  
+}
+
+lapply(mmyy, scrap) #aplicamos funcion sobre lista de fechas a consultar
+
+remDr$close() #Cerramos servidor en caso de usar scrap denuevo
+
+tictoc::toc() #Fin tiempo
+cat(str_c("Desde ",format(inicio, "%B %Y"), " a ", format(fin, "%B %Y")))

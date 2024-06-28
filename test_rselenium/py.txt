@@ -1,0 +1,43 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+import os
+
+# OJO! hay que cambiar el nombre del archivo en linea
+# 28 y 40
+
+def month_year_iter( start_month, start_year, end_month, end_year ):
+    ym_start= 12*start_year + start_month - 1
+    ym_end= 12*end_year + end_month - 1
+    for ym in range( ym_start, ym_end ):
+        y, m = divmod( ym, 12 )
+        yield y, m+1
+
+def scrap(yy, mm, b):
+    b.get("https://www.cmfchile.cl/institucional/estadisticas/fmdfm_consulta1.php")
+
+    select = Select(b.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[3]/select[1]'))
+    select.select_by_value(m)
+
+    select = Select(b.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[3]/select[2]'))
+    select.select_by_value(y)
+
+    b.find_element(By.XPATH, "/html/body/div[2]/div[2]/div/div/div/div[4]/form/div[4]/input").click()
+
+    print(f"Downloading month {m}, year {y}")
+    while 'costosffmm20211119.xls' not in os.listdir(r"d:\Users\Ricardo Villarreal\Downloads"):
+        pass
+    
+    b.close
+    print("Done!")
+
+b = webdriver.Chrome("D:\Drivers\chromedriver\chromedriver.exe")
+
+for yy, mm in month_year_iter(1, 2006, 11, 2021):
+    y = f"{yy:04d}"
+    m = f"{mm:02d}"
+    scrap(y, m, b)
+    desde = r"d:/Users/Ricardo Villarreal/Downloads/costosffmm20211119.xls"
+    hacia = r"D:/Users/Ricardo Villarreal/OneDrive/Documentos/AAFM/Datasets/TAC/raw/" + f"{y}{m}_TAC_CMF.xls"
+    os.rename(desde, hacia)
+    print(f"{y}_{m} done")

@@ -1,0 +1,72 @@
+---
+title: "Documento de Prueba R"
+author: "MDiez"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(scipen=999)
+
+library(gapminder)
+library(ggplot2)
+library(lubridate)
+library(stringr)
+library(data.table)
+library(skimr)
+library(dplyr)
+
+df <- gapminder
+
+```
+
+## Test Usando datos de librería *GAPMINDER*
+
+### Estadística Descriptiva
+
+
+
+```{r t1}
+
+df %>% 
+  arrange(year) %>%
+  filter(year == tail(year,1)) %>%
+  group_by(continent) %>%
+  select(-year) %>%
+  summarise(Mean_LifeExp = mean(lifeExp),
+            Total_Pop = sum(pop),
+            Mean_GDP = mean(gdpPercap))
+
+```
+### Mayor Detalle
+
+```{r t2}
+
+options(skimr.numeric.format = "%f")
+
+df %>% 
+  arrange(year) %>%
+  filter(year == tail(year,1)) %>%
+  skim(lifeExp, pop, gdpPercap) %>%
+  select(c(2, 4:5, 9 ,12), -complete_rate) 
+
+```
+
+### Evolución Esperanza de Vida Promedio, por continente
+
+Procedemos a graficar:
+
+```{r pressure, echo=FALSE}
+options(dplyr.summarise.inform = FALSE)
+
+df %>%
+  group_by(continent, year) %>%
+  summarise(lifeExp = mean(lifeExp)) %>%
+  ggplot(aes(year, lifeExp, color=continent)) +
+  geom_line() +
+  theme_classic()
+```
+

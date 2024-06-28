@@ -1,0 +1,1373 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={test},
+  pdfauthor={MDiez},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{test}
+\author{MDiez}
+\date{2023-08-30}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'data.table'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:lubridate':
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday, week,
+##     yday, year
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:data.table':
+## 
+##     between, first, last
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule()
+\endhead
+Name & Piped data \\
+Number of rows & 142 \\
+Number of columns & 5 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+factor & 1 \\
+numeric & 3 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & country \\
+\bottomrule()
+\end{longtable}
+
+\textbf{Variable type: factor}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1261}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2252}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0901}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1261}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0721}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0811}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2793}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+country
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ordered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+top\_counts
+\end{minipage} \\
+\midrule()
+\endhead
+continent & Afghanistan & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Albania & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Algeria & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Angola & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Argentina & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Australia & 0 & 1 & FALSE & 1 & Oce: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Austria & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Bahrain & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Bangladesh & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Belgium & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Benin & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Bolivia & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Bosnia and Herzegovina & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0,
+Ame: 0, Asi: 0 \\
+continent & Botswana & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Brazil & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Bulgaria & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Burkina Faso & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Burundi & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Cambodia & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Cameroon & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Canada & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Central African Republic & 0 & 1 & FALSE & 1 & Afr: 1, Ame:
+0, Asi: 0, Eur: 0 \\
+continent & Chad & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur: 0 \\
+continent & Chile & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & China & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Colombia & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Comoros & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Congo, Dem. Rep. & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi:
+0, Eur: 0 \\
+continent & Congo, Rep. & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Costa Rica & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0,
+Eur: 0 \\
+continent & Cote d'Ivoire & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Croatia & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Cuba & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur: 0 \\
+continent & Czech Republic & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & Denmark & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Djibouti & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Dominican Republic & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0,
+Asi: 0, Eur: 0 \\
+continent & Ecuador & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Egypt & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & El Salvador & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0,
+Eur: 0 \\
+continent & Equatorial Guinea & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi:
+0, Eur: 0 \\
+continent & Eritrea & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Ethiopia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Finland & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & France & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Gabon & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Gambia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Germany & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Ghana & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Greece & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Guatemala & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Guinea & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Guinea-Bissau & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Haiti & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Honduras & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Hong Kong, China & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame:
+0, Eur: 0 \\
+continent & Hungary & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Iceland & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & India & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Indonesia & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Iran & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur: 0 \\
+continent & Iraq & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur: 0 \\
+continent & Ireland & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Israel & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Italy & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Jamaica & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Japan & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Jordan & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Kenya & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Korea, Dem. Rep. & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame:
+0, Eur: 0 \\
+continent & Korea, Rep. & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Kuwait & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Lebanon & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Lesotho & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Liberia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Libya & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Madagascar & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Malawi & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Malaysia & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Mali & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur: 0 \\
+continent & Mauritania & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Mauritius & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Mexico & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Mongolia & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Montenegro & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & Morocco & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Mozambique & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Myanmar & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Namibia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Nepal & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Netherlands & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & New Zealand & 0 & 1 & FALSE & 1 & Oce: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & Nicaragua & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Niger & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Nigeria & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Norway & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Oman & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur: 0 \\
+continent & Pakistan & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Panama & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Paraguay & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Peru & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur: 0 \\
+continent & Philippines & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Poland & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Portugal & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Puerto Rico & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0,
+Eur: 0 \\
+continent & Reunion & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Romania & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Rwanda & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Sao Tome and Principe & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0,
+Asi: 0, Eur: 0 \\
+continent & Saudi Arabia & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Senegal & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Serbia & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Sierra Leone & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Singapore & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Slovak Republic & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame:
+0, Asi: 0 \\
+continent & Slovenia & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Somalia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & South Africa & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0,
+Eur: 0 \\
+continent & Spain & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Sri Lanka & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Sudan & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Swaziland & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Sweden & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Switzerland & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & Syria & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Taiwan & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Tanzania & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Thailand & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & Togo & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur: 0 \\
+continent & Trinidad and Tobago & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0,
+Asi: 0, Eur: 0 \\
+continent & Tunisia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Turkey & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0, Asi:
+0 \\
+continent & Uganda & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & United Kingdom & 0 & 1 & FALSE & 1 & Eur: 1, Afr: 0, Ame: 0,
+Asi: 0 \\
+continent & United States & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0,
+Eur: 0 \\
+continent & Uruguay & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Venezuela & 0 & 1 & FALSE & 1 & Ame: 1, Afr: 0, Asi: 0, Eur:
+0 \\
+continent & Vietnam & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0, Eur:
+0 \\
+continent & West Bank and Gaza & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0,
+Ame: 0, Eur: 0 \\
+continent & Yemen, Rep. & 0 & 1 & FALSE & 1 & Asi: 1, Afr: 0, Ame: 0,
+Eur: 0 \\
+continent & Zambia & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+continent & Zimbabwe & 0 & 1 & FALSE & 1 & Afr: 1, Ame: 0, Asi: 0, Eur:
+0 \\
+\bottomrule()
+\end{longtable}
+
+\textbf{Variable type: numeric}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0933}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0933}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0200}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0867}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0400}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+country
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule()
+\endhead
+lifeExp & Afghanistan & 0 & 1 & 4.383000e+01 & NA & 4.383000e+01 &
+4.383000e+01 & 4.383000e+01 & 4.383000e+01 & 4.383000e+01 & ▁▁▇▁▁ \\
+lifeExp & Albania & 0 & 1 & 7.642000e+01 & NA & 7.642000e+01 &
+7.642000e+01 & 7.642000e+01 & 7.642000e+01 & 7.642000e+01 & ▁▁▇▁▁ \\
+lifeExp & Algeria & 0 & 1 & 7.230000e+01 & NA & 7.230000e+01 &
+7.230000e+01 & 7.230000e+01 & 7.230000e+01 & 7.230000e+01 & ▁▁▇▁▁ \\
+lifeExp & Angola & 0 & 1 & 4.273000e+01 & NA & 4.273000e+01 &
+4.273000e+01 & 4.273000e+01 & 4.273000e+01 & 4.273000e+01 & ▁▁▇▁▁ \\
+lifeExp & Argentina & 0 & 1 & 7.532000e+01 & NA & 7.532000e+01 &
+7.532000e+01 & 7.532000e+01 & 7.532000e+01 & 7.532000e+01 & ▁▁▇▁▁ \\
+lifeExp & Australia & 0 & 1 & 8.124000e+01 & NA & 8.124000e+01 &
+8.124000e+01 & 8.124000e+01 & 8.124000e+01 & 8.124000e+01 & ▁▁▇▁▁ \\
+lifeExp & Austria & 0 & 1 & 7.983000e+01 & NA & 7.983000e+01 &
+7.983000e+01 & 7.983000e+01 & 7.983000e+01 & 7.983000e+01 & ▁▁▇▁▁ \\
+lifeExp & Bahrain & 0 & 1 & 7.564000e+01 & NA & 7.564000e+01 &
+7.564000e+01 & 7.564000e+01 & 7.564000e+01 & 7.564000e+01 & ▁▁▇▁▁ \\
+lifeExp & Bangladesh & 0 & 1 & 6.406000e+01 & NA & 6.406000e+01 &
+6.406000e+01 & 6.406000e+01 & 6.406000e+01 & 6.406000e+01 & ▁▁▇▁▁ \\
+lifeExp & Belgium & 0 & 1 & 7.944000e+01 & NA & 7.944000e+01 &
+7.944000e+01 & 7.944000e+01 & 7.944000e+01 & 7.944000e+01 & ▁▁▇▁▁ \\
+lifeExp & Benin & 0 & 1 & 5.673000e+01 & NA & 5.673000e+01 &
+5.673000e+01 & 5.673000e+01 & 5.673000e+01 & 5.673000e+01 & ▁▁▇▁▁ \\
+lifeExp & Bolivia & 0 & 1 & 6.555000e+01 & NA & 6.555000e+01 &
+6.555000e+01 & 6.555000e+01 & 6.555000e+01 & 6.555000e+01 & ▁▁▇▁▁ \\
+lifeExp & Bosnia and Herzegovina & 0 & 1 & 7.485000e+01 & NA &
+7.485000e+01 & 7.485000e+01 & 7.485000e+01 & 7.485000e+01 & 7.485000e+01
+& ▁▁▇▁▁ \\
+lifeExp & Botswana & 0 & 1 & 5.073000e+01 & NA & 5.073000e+01 &
+5.073000e+01 & 5.073000e+01 & 5.073000e+01 & 5.073000e+01 & ▁▁▇▁▁ \\
+lifeExp & Brazil & 0 & 1 & 7.239000e+01 & NA & 7.239000e+01 &
+7.239000e+01 & 7.239000e+01 & 7.239000e+01 & 7.239000e+01 & ▁▁▇▁▁ \\
+lifeExp & Bulgaria & 0 & 1 & 7.300000e+01 & NA & 7.300000e+01 &
+7.300000e+01 & 7.300000e+01 & 7.300000e+01 & 7.300000e+01 & ▁▁▇▁▁ \\
+lifeExp & Burkina Faso & 0 & 1 & 5.230000e+01 & NA & 5.230000e+01 &
+5.230000e+01 & 5.230000e+01 & 5.230000e+01 & 5.230000e+01 & ▁▁▇▁▁ \\
+lifeExp & Burundi & 0 & 1 & 4.958000e+01 & NA & 4.958000e+01 &
+4.958000e+01 & 4.958000e+01 & 4.958000e+01 & 4.958000e+01 & ▁▁▇▁▁ \\
+lifeExp & Cambodia & 0 & 1 & 5.972000e+01 & NA & 5.972000e+01 &
+5.972000e+01 & 5.972000e+01 & 5.972000e+01 & 5.972000e+01 & ▁▁▇▁▁ \\
+lifeExp & Cameroon & 0 & 1 & 5.043000e+01 & NA & 5.043000e+01 &
+5.043000e+01 & 5.043000e+01 & 5.043000e+01 & 5.043000e+01 & ▁▁▇▁▁ \\
+lifeExp & Canada & 0 & 1 & 8.065000e+01 & NA & 8.065000e+01 &
+8.065000e+01 & 8.065000e+01 & 8.065000e+01 & 8.065000e+01 & ▁▁▇▁▁ \\
+lifeExp & Central African Republic & 0 & 1 & 4.474000e+01 & NA &
+4.474000e+01 & 4.474000e+01 & 4.474000e+01 & 4.474000e+01 & 4.474000e+01
+& ▁▁▇▁▁ \\
+lifeExp & Chad & 0 & 1 & 5.065000e+01 & NA & 5.065000e+01 & 5.065000e+01
+& 5.065000e+01 & 5.065000e+01 & 5.065000e+01 & ▁▁▇▁▁ \\
+lifeExp & Chile & 0 & 1 & 7.855000e+01 & NA & 7.855000e+01 &
+7.855000e+01 & 7.855000e+01 & 7.855000e+01 & 7.855000e+01 & ▁▁▇▁▁ \\
+lifeExp & China & 0 & 1 & 7.296000e+01 & NA & 7.296000e+01 &
+7.296000e+01 & 7.296000e+01 & 7.296000e+01 & 7.296000e+01 & ▁▁▇▁▁ \\
+lifeExp & Colombia & 0 & 1 & 7.289000e+01 & NA & 7.289000e+01 &
+7.289000e+01 & 7.289000e+01 & 7.289000e+01 & 7.289000e+01 & ▁▁▇▁▁ \\
+lifeExp & Comoros & 0 & 1 & 6.515000e+01 & NA & 6.515000e+01 &
+6.515000e+01 & 6.515000e+01 & 6.515000e+01 & 6.515000e+01 & ▁▁▇▁▁ \\
+lifeExp & Congo, Dem. Rep. & 0 & 1 & 4.646000e+01 & NA & 4.646000e+01 &
+4.646000e+01 & 4.646000e+01 & 4.646000e+01 & 4.646000e+01 & ▁▁▇▁▁ \\
+lifeExp & Congo, Rep. & 0 & 1 & 5.532000e+01 & NA & 5.532000e+01 &
+5.532000e+01 & 5.532000e+01 & 5.532000e+01 & 5.532000e+01 & ▁▁▇▁▁ \\
+lifeExp & Costa Rica & 0 & 1 & 7.878000e+01 & NA & 7.878000e+01 &
+7.878000e+01 & 7.878000e+01 & 7.878000e+01 & 7.878000e+01 & ▁▁▇▁▁ \\
+lifeExp & Cote d'Ivoire & 0 & 1 & 4.833000e+01 & NA & 4.833000e+01 &
+4.833000e+01 & 4.833000e+01 & 4.833000e+01 & 4.833000e+01 & ▁▁▇▁▁ \\
+lifeExp & Croatia & 0 & 1 & 7.575000e+01 & NA & 7.575000e+01 &
+7.575000e+01 & 7.575000e+01 & 7.575000e+01 & 7.575000e+01 & ▁▁▇▁▁ \\
+lifeExp & Cuba & 0 & 1 & 7.827000e+01 & NA & 7.827000e+01 & 7.827000e+01
+& 7.827000e+01 & 7.827000e+01 & 7.827000e+01 & ▁▁▇▁▁ \\
+lifeExp & Czech Republic & 0 & 1 & 7.649000e+01 & NA & 7.649000e+01 &
+7.649000e+01 & 7.649000e+01 & 7.649000e+01 & 7.649000e+01 & ▁▁▇▁▁ \\
+lifeExp & Denmark & 0 & 1 & 7.833000e+01 & NA & 7.833000e+01 &
+7.833000e+01 & 7.833000e+01 & 7.833000e+01 & 7.833000e+01 & ▁▁▇▁▁ \\
+lifeExp & Djibouti & 0 & 1 & 5.479000e+01 & NA & 5.479000e+01 &
+5.479000e+01 & 5.479000e+01 & 5.479000e+01 & 5.479000e+01 & ▁▁▇▁▁ \\
+lifeExp & Dominican Republic & 0 & 1 & 7.224000e+01 & NA & 7.224000e+01
+& 7.224000e+01 & 7.224000e+01 & 7.224000e+01 & 7.224000e+01 & ▁▁▇▁▁ \\
+lifeExp & Ecuador & 0 & 1 & 7.499000e+01 & NA & 7.499000e+01 &
+7.499000e+01 & 7.499000e+01 & 7.499000e+01 & 7.499000e+01 & ▁▁▇▁▁ \\
+lifeExp & Egypt & 0 & 1 & 7.134000e+01 & NA & 7.134000e+01 &
+7.134000e+01 & 7.134000e+01 & 7.134000e+01 & 7.134000e+01 & ▁▁▇▁▁ \\
+lifeExp & El Salvador & 0 & 1 & 7.188000e+01 & NA & 7.188000e+01 &
+7.188000e+01 & 7.188000e+01 & 7.188000e+01 & 7.188000e+01 & ▁▁▇▁▁ \\
+lifeExp & Equatorial Guinea & 0 & 1 & 5.158000e+01 & NA & 5.158000e+01 &
+5.158000e+01 & 5.158000e+01 & 5.158000e+01 & 5.158000e+01 & ▁▁▇▁▁ \\
+lifeExp & Eritrea & 0 & 1 & 5.804000e+01 & NA & 5.804000e+01 &
+5.804000e+01 & 5.804000e+01 & 5.804000e+01 & 5.804000e+01 & ▁▁▇▁▁ \\
+lifeExp & Ethiopia & 0 & 1 & 5.295000e+01 & NA & 5.295000e+01 &
+5.295000e+01 & 5.295000e+01 & 5.295000e+01 & 5.295000e+01 & ▁▁▇▁▁ \\
+lifeExp & Finland & 0 & 1 & 7.931000e+01 & NA & 7.931000e+01 &
+7.931000e+01 & 7.931000e+01 & 7.931000e+01 & 7.931000e+01 & ▁▁▇▁▁ \\
+lifeExp & France & 0 & 1 & 8.066000e+01 & NA & 8.066000e+01 &
+8.066000e+01 & 8.066000e+01 & 8.066000e+01 & 8.066000e+01 & ▁▁▇▁▁ \\
+lifeExp & Gabon & 0 & 1 & 5.674000e+01 & NA & 5.674000e+01 &
+5.674000e+01 & 5.674000e+01 & 5.674000e+01 & 5.674000e+01 & ▁▁▇▁▁ \\
+lifeExp & Gambia & 0 & 1 & 5.945000e+01 & NA & 5.945000e+01 &
+5.945000e+01 & 5.945000e+01 & 5.945000e+01 & 5.945000e+01 & ▁▁▇▁▁ \\
+lifeExp & Germany & 0 & 1 & 7.941000e+01 & NA & 7.941000e+01 &
+7.941000e+01 & 7.941000e+01 & 7.941000e+01 & 7.941000e+01 & ▁▁▇▁▁ \\
+lifeExp & Ghana & 0 & 1 & 6.002000e+01 & NA & 6.002000e+01 &
+6.002000e+01 & 6.002000e+01 & 6.002000e+01 & 6.002000e+01 & ▁▁▇▁▁ \\
+lifeExp & Greece & 0 & 1 & 7.948000e+01 & NA & 7.948000e+01 &
+7.948000e+01 & 7.948000e+01 & 7.948000e+01 & 7.948000e+01 & ▁▁▇▁▁ \\
+lifeExp & Guatemala & 0 & 1 & 7.026000e+01 & NA & 7.026000e+01 &
+7.026000e+01 & 7.026000e+01 & 7.026000e+01 & 7.026000e+01 & ▁▁▇▁▁ \\
+lifeExp & Guinea & 0 & 1 & 5.601000e+01 & NA & 5.601000e+01 &
+5.601000e+01 & 5.601000e+01 & 5.601000e+01 & 5.601000e+01 & ▁▁▇▁▁ \\
+lifeExp & Guinea-Bissau & 0 & 1 & 4.639000e+01 & NA & 4.639000e+01 &
+4.639000e+01 & 4.639000e+01 & 4.639000e+01 & 4.639000e+01 & ▁▁▇▁▁ \\
+lifeExp & Haiti & 0 & 1 & 6.092000e+01 & NA & 6.092000e+01 &
+6.092000e+01 & 6.092000e+01 & 6.092000e+01 & 6.092000e+01 & ▁▁▇▁▁ \\
+lifeExp & Honduras & 0 & 1 & 7.020000e+01 & NA & 7.020000e+01 &
+7.020000e+01 & 7.020000e+01 & 7.020000e+01 & 7.020000e+01 & ▁▁▇▁▁ \\
+lifeExp & Hong Kong, China & 0 & 1 & 8.221000e+01 & NA & 8.221000e+01 &
+8.221000e+01 & 8.221000e+01 & 8.221000e+01 & 8.221000e+01 & ▁▁▇▁▁ \\
+lifeExp & Hungary & 0 & 1 & 7.334000e+01 & NA & 7.334000e+01 &
+7.334000e+01 & 7.334000e+01 & 7.334000e+01 & 7.334000e+01 & ▁▁▇▁▁ \\
+lifeExp & Iceland & 0 & 1 & 8.176000e+01 & NA & 8.176000e+01 &
+8.176000e+01 & 8.176000e+01 & 8.176000e+01 & 8.176000e+01 & ▁▁▇▁▁ \\
+lifeExp & India & 0 & 1 & 6.470000e+01 & NA & 6.470000e+01 &
+6.470000e+01 & 6.470000e+01 & 6.470000e+01 & 6.470000e+01 & ▁▁▇▁▁ \\
+lifeExp & Indonesia & 0 & 1 & 7.065000e+01 & NA & 7.065000e+01 &
+7.065000e+01 & 7.065000e+01 & 7.065000e+01 & 7.065000e+01 & ▁▁▇▁▁ \\
+lifeExp & Iran & 0 & 1 & 7.096000e+01 & NA & 7.096000e+01 & 7.096000e+01
+& 7.096000e+01 & 7.096000e+01 & 7.096000e+01 & ▁▁▇▁▁ \\
+lifeExp & Iraq & 0 & 1 & 5.955000e+01 & NA & 5.955000e+01 & 5.955000e+01
+& 5.955000e+01 & 5.955000e+01 & 5.955000e+01 & ▁▁▇▁▁ \\
+lifeExp & Ireland & 0 & 1 & 7.889000e+01 & NA & 7.889000e+01 &
+7.889000e+01 & 7.889000e+01 & 7.889000e+01 & 7.889000e+01 & ▁▁▇▁▁ \\
+lifeExp & Israel & 0 & 1 & 8.075000e+01 & NA & 8.075000e+01 &
+8.075000e+01 & 8.075000e+01 & 8.075000e+01 & 8.075000e+01 & ▁▁▇▁▁ \\
+lifeExp & Italy & 0 & 1 & 8.055000e+01 & NA & 8.055000e+01 &
+8.055000e+01 & 8.055000e+01 & 8.055000e+01 & 8.055000e+01 & ▁▁▇▁▁ \\
+lifeExp & Jamaica & 0 & 1 & 7.257000e+01 & NA & 7.257000e+01 &
+7.257000e+01 & 7.257000e+01 & 7.257000e+01 & 7.257000e+01 & ▁▁▇▁▁ \\
+lifeExp & Japan & 0 & 1 & 8.260000e+01 & NA & 8.260000e+01 &
+8.260000e+01 & 8.260000e+01 & 8.260000e+01 & 8.260000e+01 & ▁▁▇▁▁ \\
+lifeExp & Jordan & 0 & 1 & 7.253000e+01 & NA & 7.253000e+01 &
+7.253000e+01 & 7.253000e+01 & 7.253000e+01 & 7.253000e+01 & ▁▁▇▁▁ \\
+lifeExp & Kenya & 0 & 1 & 5.411000e+01 & NA & 5.411000e+01 &
+5.411000e+01 & 5.411000e+01 & 5.411000e+01 & 5.411000e+01 & ▁▁▇▁▁ \\
+lifeExp & Korea, Dem. Rep. & 0 & 1 & 6.730000e+01 & NA & 6.730000e+01 &
+6.730000e+01 & 6.730000e+01 & 6.730000e+01 & 6.730000e+01 & ▁▁▇▁▁ \\
+lifeExp & Korea, Rep. & 0 & 1 & 7.862000e+01 & NA & 7.862000e+01 &
+7.862000e+01 & 7.862000e+01 & 7.862000e+01 & 7.862000e+01 & ▁▁▇▁▁ \\
+lifeExp & Kuwait & 0 & 1 & 7.759000e+01 & NA & 7.759000e+01 &
+7.759000e+01 & 7.759000e+01 & 7.759000e+01 & 7.759000e+01 & ▁▁▇▁▁ \\
+lifeExp & Lebanon & 0 & 1 & 7.199000e+01 & NA & 7.199000e+01 &
+7.199000e+01 & 7.199000e+01 & 7.199000e+01 & 7.199000e+01 & ▁▁▇▁▁ \\
+lifeExp & Lesotho & 0 & 1 & 4.259000e+01 & NA & 4.259000e+01 &
+4.259000e+01 & 4.259000e+01 & 4.259000e+01 & 4.259000e+01 & ▁▁▇▁▁ \\
+lifeExp & Liberia & 0 & 1 & 4.568000e+01 & NA & 4.568000e+01 &
+4.568000e+01 & 4.568000e+01 & 4.568000e+01 & 4.568000e+01 & ▁▁▇▁▁ \\
+lifeExp & Libya & 0 & 1 & 7.395000e+01 & NA & 7.395000e+01 &
+7.395000e+01 & 7.395000e+01 & 7.395000e+01 & 7.395000e+01 & ▁▁▇▁▁ \\
+lifeExp & Madagascar & 0 & 1 & 5.944000e+01 & NA & 5.944000e+01 &
+5.944000e+01 & 5.944000e+01 & 5.944000e+01 & 5.944000e+01 & ▁▁▇▁▁ \\
+lifeExp & Malawi & 0 & 1 & 4.830000e+01 & NA & 4.830000e+01 &
+4.830000e+01 & 4.830000e+01 & 4.830000e+01 & 4.830000e+01 & ▁▁▇▁▁ \\
+lifeExp & Malaysia & 0 & 1 & 7.424000e+01 & NA & 7.424000e+01 &
+7.424000e+01 & 7.424000e+01 & 7.424000e+01 & 7.424000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mali & 0 & 1 & 5.447000e+01 & NA & 5.447000e+01 & 5.447000e+01
+& 5.447000e+01 & 5.447000e+01 & 5.447000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mauritania & 0 & 1 & 6.416000e+01 & NA & 6.416000e+01 &
+6.416000e+01 & 6.416000e+01 & 6.416000e+01 & 6.416000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mauritius & 0 & 1 & 7.280000e+01 & NA & 7.280000e+01 &
+7.280000e+01 & 7.280000e+01 & 7.280000e+01 & 7.280000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mexico & 0 & 1 & 7.619000e+01 & NA & 7.619000e+01 &
+7.619000e+01 & 7.619000e+01 & 7.619000e+01 & 7.619000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mongolia & 0 & 1 & 6.680000e+01 & NA & 6.680000e+01 &
+6.680000e+01 & 6.680000e+01 & 6.680000e+01 & 6.680000e+01 & ▁▁▇▁▁ \\
+lifeExp & Montenegro & 0 & 1 & 7.454000e+01 & NA & 7.454000e+01 &
+7.454000e+01 & 7.454000e+01 & 7.454000e+01 & 7.454000e+01 & ▁▁▇▁▁ \\
+lifeExp & Morocco & 0 & 1 & 7.116000e+01 & NA & 7.116000e+01 &
+7.116000e+01 & 7.116000e+01 & 7.116000e+01 & 7.116000e+01 & ▁▁▇▁▁ \\
+lifeExp & Mozambique & 0 & 1 & 4.208000e+01 & NA & 4.208000e+01 &
+4.208000e+01 & 4.208000e+01 & 4.208000e+01 & 4.208000e+01 & ▁▁▇▁▁ \\
+lifeExp & Myanmar & 0 & 1 & 6.207000e+01 & NA & 6.207000e+01 &
+6.207000e+01 & 6.207000e+01 & 6.207000e+01 & 6.207000e+01 & ▁▁▇▁▁ \\
+lifeExp & Namibia & 0 & 1 & 5.291000e+01 & NA & 5.291000e+01 &
+5.291000e+01 & 5.291000e+01 & 5.291000e+01 & 5.291000e+01 & ▁▁▇▁▁ \\
+lifeExp & Nepal & 0 & 1 & 6.378000e+01 & NA & 6.378000e+01 &
+6.378000e+01 & 6.378000e+01 & 6.378000e+01 & 6.378000e+01 & ▁▁▇▁▁ \\
+lifeExp & Netherlands & 0 & 1 & 7.976000e+01 & NA & 7.976000e+01 &
+7.976000e+01 & 7.976000e+01 & 7.976000e+01 & 7.976000e+01 & ▁▁▇▁▁ \\
+lifeExp & New Zealand & 0 & 1 & 8.020000e+01 & NA & 8.020000e+01 &
+8.020000e+01 & 8.020000e+01 & 8.020000e+01 & 8.020000e+01 & ▁▁▇▁▁ \\
+lifeExp & Nicaragua & 0 & 1 & 7.290000e+01 & NA & 7.290000e+01 &
+7.290000e+01 & 7.290000e+01 & 7.290000e+01 & 7.290000e+01 & ▁▁▇▁▁ \\
+lifeExp & Niger & 0 & 1 & 5.687000e+01 & NA & 5.687000e+01 &
+5.687000e+01 & 5.687000e+01 & 5.687000e+01 & 5.687000e+01 & ▁▁▇▁▁ \\
+lifeExp & Nigeria & 0 & 1 & 4.686000e+01 & NA & 4.686000e+01 &
+4.686000e+01 & 4.686000e+01 & 4.686000e+01 & 4.686000e+01 & ▁▁▇▁▁ \\
+lifeExp & Norway & 0 & 1 & 8.020000e+01 & NA & 8.020000e+01 &
+8.020000e+01 & 8.020000e+01 & 8.020000e+01 & 8.020000e+01 & ▁▁▇▁▁ \\
+lifeExp & Oman & 0 & 1 & 7.564000e+01 & NA & 7.564000e+01 & 7.564000e+01
+& 7.564000e+01 & 7.564000e+01 & 7.564000e+01 & ▁▁▇▁▁ \\
+lifeExp & Pakistan & 0 & 1 & 6.548000e+01 & NA & 6.548000e+01 &
+6.548000e+01 & 6.548000e+01 & 6.548000e+01 & 6.548000e+01 & ▁▁▇▁▁ \\
+lifeExp & Panama & 0 & 1 & 7.554000e+01 & NA & 7.554000e+01 &
+7.554000e+01 & 7.554000e+01 & 7.554000e+01 & 7.554000e+01 & ▁▁▇▁▁ \\
+lifeExp & Paraguay & 0 & 1 & 7.175000e+01 & NA & 7.175000e+01 &
+7.175000e+01 & 7.175000e+01 & 7.175000e+01 & 7.175000e+01 & ▁▁▇▁▁ \\
+lifeExp & Peru & 0 & 1 & 7.142000e+01 & NA & 7.142000e+01 & 7.142000e+01
+& 7.142000e+01 & 7.142000e+01 & 7.142000e+01 & ▁▁▇▁▁ \\
+lifeExp & Philippines & 0 & 1 & 7.169000e+01 & NA & 7.169000e+01 &
+7.169000e+01 & 7.169000e+01 & 7.169000e+01 & 7.169000e+01 & ▁▁▇▁▁ \\
+lifeExp & Poland & 0 & 1 & 7.556000e+01 & NA & 7.556000e+01 &
+7.556000e+01 & 7.556000e+01 & 7.556000e+01 & 7.556000e+01 & ▁▁▇▁▁ \\
+lifeExp & Portugal & 0 & 1 & 7.810000e+01 & NA & 7.810000e+01 &
+7.810000e+01 & 7.810000e+01 & 7.810000e+01 & 7.810000e+01 & ▁▁▇▁▁ \\
+lifeExp & Puerto Rico & 0 & 1 & 7.875000e+01 & NA & 7.875000e+01 &
+7.875000e+01 & 7.875000e+01 & 7.875000e+01 & 7.875000e+01 & ▁▁▇▁▁ \\
+lifeExp & Reunion & 0 & 1 & 7.644000e+01 & NA & 7.644000e+01 &
+7.644000e+01 & 7.644000e+01 & 7.644000e+01 & 7.644000e+01 & ▁▁▇▁▁ \\
+lifeExp & Romania & 0 & 1 & 7.248000e+01 & NA & 7.248000e+01 &
+7.248000e+01 & 7.248000e+01 & 7.248000e+01 & 7.248000e+01 & ▁▁▇▁▁ \\
+lifeExp & Rwanda & 0 & 1 & 4.624000e+01 & NA & 4.624000e+01 &
+4.624000e+01 & 4.624000e+01 & 4.624000e+01 & 4.624000e+01 & ▁▁▇▁▁ \\
+lifeExp & Sao Tome and Principe & 0 & 1 & 6.553000e+01 & NA &
+6.553000e+01 & 6.553000e+01 & 6.553000e+01 & 6.553000e+01 & 6.553000e+01
+& ▁▁▇▁▁ \\
+lifeExp & Saudi Arabia & 0 & 1 & 7.278000e+01 & NA & 7.278000e+01 &
+7.278000e+01 & 7.278000e+01 & 7.278000e+01 & 7.278000e+01 & ▁▁▇▁▁ \\
+lifeExp & Senegal & 0 & 1 & 6.306000e+01 & NA & 6.306000e+01 &
+6.306000e+01 & 6.306000e+01 & 6.306000e+01 & 6.306000e+01 & ▁▁▇▁▁ \\
+lifeExp & Serbia & 0 & 1 & 7.400000e+01 & NA & 7.400000e+01 &
+7.400000e+01 & 7.400000e+01 & 7.400000e+01 & 7.400000e+01 & ▁▁▇▁▁ \\
+lifeExp & Sierra Leone & 0 & 1 & 4.257000e+01 & NA & 4.257000e+01 &
+4.257000e+01 & 4.257000e+01 & 4.257000e+01 & 4.257000e+01 & ▁▁▇▁▁ \\
+lifeExp & Singapore & 0 & 1 & 7.997000e+01 & NA & 7.997000e+01 &
+7.997000e+01 & 7.997000e+01 & 7.997000e+01 & 7.997000e+01 & ▁▁▇▁▁ \\
+lifeExp & Slovak Republic & 0 & 1 & 7.466000e+01 & NA & 7.466000e+01 &
+7.466000e+01 & 7.466000e+01 & 7.466000e+01 & 7.466000e+01 & ▁▁▇▁▁ \\
+lifeExp & Slovenia & 0 & 1 & 7.793000e+01 & NA & 7.793000e+01 &
+7.793000e+01 & 7.793000e+01 & 7.793000e+01 & 7.793000e+01 & ▁▁▇▁▁ \\
+lifeExp & Somalia & 0 & 1 & 4.816000e+01 & NA & 4.816000e+01 &
+4.816000e+01 & 4.816000e+01 & 4.816000e+01 & 4.816000e+01 & ▁▁▇▁▁ \\
+lifeExp & South Africa & 0 & 1 & 4.934000e+01 & NA & 4.934000e+01 &
+4.934000e+01 & 4.934000e+01 & 4.934000e+01 & 4.934000e+01 & ▁▁▇▁▁ \\
+lifeExp & Spain & 0 & 1 & 8.094000e+01 & NA & 8.094000e+01 &
+8.094000e+01 & 8.094000e+01 & 8.094000e+01 & 8.094000e+01 & ▁▁▇▁▁ \\
+lifeExp & Sri Lanka & 0 & 1 & 7.240000e+01 & NA & 7.240000e+01 &
+7.240000e+01 & 7.240000e+01 & 7.240000e+01 & 7.240000e+01 & ▁▁▇▁▁ \\
+lifeExp & Sudan & 0 & 1 & 5.856000e+01 & NA & 5.856000e+01 &
+5.856000e+01 & 5.856000e+01 & 5.856000e+01 & 5.856000e+01 & ▁▁▇▁▁ \\
+lifeExp & Swaziland & 0 & 1 & 3.961000e+01 & NA & 3.961000e+01 &
+3.961000e+01 & 3.961000e+01 & 3.961000e+01 & 3.961000e+01 & ▁▁▇▁▁ \\
+lifeExp & Sweden & 0 & 1 & 8.088000e+01 & NA & 8.088000e+01 &
+8.088000e+01 & 8.088000e+01 & 8.088000e+01 & 8.088000e+01 & ▁▁▇▁▁ \\
+lifeExp & Switzerland & 0 & 1 & 8.170000e+01 & NA & 8.170000e+01 &
+8.170000e+01 & 8.170000e+01 & 8.170000e+01 & 8.170000e+01 & ▁▁▇▁▁ \\
+lifeExp & Syria & 0 & 1 & 7.414000e+01 & NA & 7.414000e+01 &
+7.414000e+01 & 7.414000e+01 & 7.414000e+01 & 7.414000e+01 & ▁▁▇▁▁ \\
+lifeExp & Taiwan & 0 & 1 & 7.840000e+01 & NA & 7.840000e+01 &
+7.840000e+01 & 7.840000e+01 & 7.840000e+01 & 7.840000e+01 & ▁▁▇▁▁ \\
+lifeExp & Tanzania & 0 & 1 & 5.252000e+01 & NA & 5.252000e+01 &
+5.252000e+01 & 5.252000e+01 & 5.252000e+01 & 5.252000e+01 & ▁▁▇▁▁ \\
+lifeExp & Thailand & 0 & 1 & 7.062000e+01 & NA & 7.062000e+01 &
+7.062000e+01 & 7.062000e+01 & 7.062000e+01 & 7.062000e+01 & ▁▁▇▁▁ \\
+lifeExp & Togo & 0 & 1 & 5.842000e+01 & NA & 5.842000e+01 & 5.842000e+01
+& 5.842000e+01 & 5.842000e+01 & 5.842000e+01 & ▁▁▇▁▁ \\
+lifeExp & Trinidad and Tobago & 0 & 1 & 6.982000e+01 & NA & 6.982000e+01
+& 6.982000e+01 & 6.982000e+01 & 6.982000e+01 & 6.982000e+01 & ▁▁▇▁▁ \\
+lifeExp & Tunisia & 0 & 1 & 7.392000e+01 & NA & 7.392000e+01 &
+7.392000e+01 & 7.392000e+01 & 7.392000e+01 & 7.392000e+01 & ▁▁▇▁▁ \\
+lifeExp & Turkey & 0 & 1 & 7.178000e+01 & NA & 7.178000e+01 &
+7.178000e+01 & 7.178000e+01 & 7.178000e+01 & 7.178000e+01 & ▁▁▇▁▁ \\
+lifeExp & Uganda & 0 & 1 & 5.154000e+01 & NA & 5.154000e+01 &
+5.154000e+01 & 5.154000e+01 & 5.154000e+01 & 5.154000e+01 & ▁▁▇▁▁ \\
+lifeExp & United Kingdom & 0 & 1 & 7.942000e+01 & NA & 7.942000e+01 &
+7.942000e+01 & 7.942000e+01 & 7.942000e+01 & 7.942000e+01 & ▁▁▇▁▁ \\
+lifeExp & United States & 0 & 1 & 7.824000e+01 & NA & 7.824000e+01 &
+7.824000e+01 & 7.824000e+01 & 7.824000e+01 & 7.824000e+01 & ▁▁▇▁▁ \\
+lifeExp & Uruguay & 0 & 1 & 7.638000e+01 & NA & 7.638000e+01 &
+7.638000e+01 & 7.638000e+01 & 7.638000e+01 & 7.638000e+01 & ▁▁▇▁▁ \\
+lifeExp & Venezuela & 0 & 1 & 7.375000e+01 & NA & 7.375000e+01 &
+7.375000e+01 & 7.375000e+01 & 7.375000e+01 & 7.375000e+01 & ▁▁▇▁▁ \\
+lifeExp & Vietnam & 0 & 1 & 7.425000e+01 & NA & 7.425000e+01 &
+7.425000e+01 & 7.425000e+01 & 7.425000e+01 & 7.425000e+01 & ▁▁▇▁▁ \\
+lifeExp & West Bank and Gaza & 0 & 1 & 7.342000e+01 & NA & 7.342000e+01
+& 7.342000e+01 & 7.342000e+01 & 7.342000e+01 & 7.342000e+01 & ▁▁▇▁▁ \\
+lifeExp & Yemen, Rep. & 0 & 1 & 6.270000e+01 & NA & 6.270000e+01 &
+6.270000e+01 & 6.270000e+01 & 6.270000e+01 & 6.270000e+01 & ▁▁▇▁▁ \\
+lifeExp & Zambia & 0 & 1 & 4.238000e+01 & NA & 4.238000e+01 &
+4.238000e+01 & 4.238000e+01 & 4.238000e+01 & 4.238000e+01 & ▁▁▇▁▁ \\
+lifeExp & Zimbabwe & 0 & 1 & 4.349000e+01 & NA & 4.349000e+01 &
+4.349000e+01 & 4.349000e+01 & 4.349000e+01 & 4.349000e+01 & ▁▁▇▁▁ \\
+pop & Afghanistan & 0 & 1 & 3.188992e+07 & NA & 3.188992e+07 &
+3.188992e+07 & 3.188992e+07 & 3.188992e+07 & 3.188992e+07 & ▁▁▇▁▁ \\
+pop & Albania & 0 & 1 & 3.600523e+06 & NA & 3.600523e+06 & 3.600523e+06
+& 3.600523e+06 & 3.600523e+06 & 3.600523e+06 & ▁▁▇▁▁ \\
+pop & Algeria & 0 & 1 & 3.333322e+07 & NA & 3.333322e+07 & 3.333322e+07
+& 3.333322e+07 & 3.333322e+07 & 3.333322e+07 & ▁▁▇▁▁ \\
+pop & Angola & 0 & 1 & 1.242048e+07 & NA & 1.242048e+07 & 1.242048e+07 &
+1.242048e+07 & 1.242048e+07 & 1.242048e+07 & ▁▁▇▁▁ \\
+pop & Argentina & 0 & 1 & 4.030193e+07 & NA & 4.030193e+07 &
+4.030193e+07 & 4.030193e+07 & 4.030193e+07 & 4.030193e+07 & ▁▁▇▁▁ \\
+pop & Australia & 0 & 1 & 2.043418e+07 & NA & 2.043418e+07 &
+2.043418e+07 & 2.043418e+07 & 2.043418e+07 & 2.043418e+07 & ▁▁▇▁▁ \\
+pop & Austria & 0 & 1 & 8.199783e+06 & NA & 8.199783e+06 & 8.199783e+06
+& 8.199783e+06 & 8.199783e+06 & 8.199783e+06 & ▁▁▇▁▁ \\
+pop & Bahrain & 0 & 1 & 7.085730e+05 & NA & 7.085730e+05 & 7.085730e+05
+& 7.085730e+05 & 7.085730e+05 & 7.085730e+05 & ▁▁▇▁▁ \\
+pop & Bangladesh & 0 & 1 & 1.504483e+08 & NA & 1.504483e+08 &
+1.504483e+08 & 1.504483e+08 & 1.504483e+08 & 1.504483e+08 & ▁▁▇▁▁ \\
+pop & Belgium & 0 & 1 & 1.039223e+07 & NA & 1.039223e+07 & 1.039223e+07
+& 1.039223e+07 & 1.039223e+07 & 1.039223e+07 & ▁▁▇▁▁ \\
+pop & Benin & 0 & 1 & 8.078314e+06 & NA & 8.078314e+06 & 8.078314e+06 &
+8.078314e+06 & 8.078314e+06 & 8.078314e+06 & ▁▁▇▁▁ \\
+pop & Bolivia & 0 & 1 & 9.119152e+06 & NA & 9.119152e+06 & 9.119152e+06
+& 9.119152e+06 & 9.119152e+06 & 9.119152e+06 & ▁▁▇▁▁ \\
+pop & Bosnia and Herzegovina & 0 & 1 & 4.552198e+06 & NA & 4.552198e+06
+& 4.552198e+06 & 4.552198e+06 & 4.552198e+06 & 4.552198e+06 & ▁▁▇▁▁ \\
+pop & Botswana & 0 & 1 & 1.639131e+06 & NA & 1.639131e+06 & 1.639131e+06
+& 1.639131e+06 & 1.639131e+06 & 1.639131e+06 & ▁▁▇▁▁ \\
+pop & Brazil & 0 & 1 & 1.900106e+08 & NA & 1.900106e+08 & 1.900106e+08 &
+1.900106e+08 & 1.900106e+08 & 1.900106e+08 & ▁▁▇▁▁ \\
+pop & Bulgaria & 0 & 1 & 7.322858e+06 & NA & 7.322858e+06 & 7.322858e+06
+& 7.322858e+06 & 7.322858e+06 & 7.322858e+06 & ▁▁▇▁▁ \\
+pop & Burkina Faso & 0 & 1 & 1.432620e+07 & NA & 1.432620e+07 &
+1.432620e+07 & 1.432620e+07 & 1.432620e+07 & 1.432620e+07 & ▁▁▇▁▁ \\
+pop & Burundi & 0 & 1 & 8.390505e+06 & NA & 8.390505e+06 & 8.390505e+06
+& 8.390505e+06 & 8.390505e+06 & 8.390505e+06 & ▁▁▇▁▁ \\
+pop & Cambodia & 0 & 1 & 1.413186e+07 & NA & 1.413186e+07 & 1.413186e+07
+& 1.413186e+07 & 1.413186e+07 & 1.413186e+07 & ▁▁▇▁▁ \\
+pop & Cameroon & 0 & 1 & 1.769629e+07 & NA & 1.769629e+07 & 1.769629e+07
+& 1.769629e+07 & 1.769629e+07 & 1.769629e+07 & ▁▁▇▁▁ \\
+pop & Canada & 0 & 1 & 3.339014e+07 & NA & 3.339014e+07 & 3.339014e+07 &
+3.339014e+07 & 3.339014e+07 & 3.339014e+07 & ▁▁▇▁▁ \\
+pop & Central African Republic & 0 & 1 & 4.369038e+06 & NA &
+4.369038e+06 & 4.369038e+06 & 4.369038e+06 & 4.369038e+06 & 4.369038e+06
+& ▁▁▇▁▁ \\
+pop & Chad & 0 & 1 & 1.023881e+07 & NA & 1.023881e+07 & 1.023881e+07 &
+1.023881e+07 & 1.023881e+07 & 1.023881e+07 & ▁▁▇▁▁ \\
+pop & Chile & 0 & 1 & 1.628474e+07 & NA & 1.628474e+07 & 1.628474e+07 &
+1.628474e+07 & 1.628474e+07 & 1.628474e+07 & ▁▁▇▁▁ \\
+pop & China & 0 & 1 & 1.318683e+09 & NA & 1.318683e+09 & 1.318683e+09 &
+1.318683e+09 & 1.318683e+09 & 1.318683e+09 & ▁▁▇▁▁ \\
+pop & Colombia & 0 & 1 & 4.422755e+07 & NA & 4.422755e+07 & 4.422755e+07
+& 4.422755e+07 & 4.422755e+07 & 4.422755e+07 & ▁▁▇▁▁ \\
+pop & Comoros & 0 & 1 & 7.109600e+05 & NA & 7.109600e+05 & 7.109600e+05
+& 7.109600e+05 & 7.109600e+05 & 7.109600e+05 & ▁▁▇▁▁ \\
+pop & Congo, Dem. Rep. & 0 & 1 & 6.460676e+07 & NA & 6.460676e+07 &
+6.460676e+07 & 6.460676e+07 & 6.460676e+07 & 6.460676e+07 & ▁▁▇▁▁ \\
+pop & Congo, Rep. & 0 & 1 & 3.800610e+06 & NA & 3.800610e+06 &
+3.800610e+06 & 3.800610e+06 & 3.800610e+06 & 3.800610e+06 & ▁▁▇▁▁ \\
+pop & Costa Rica & 0 & 1 & 4.133884e+06 & NA & 4.133884e+06 &
+4.133884e+06 & 4.133884e+06 & 4.133884e+06 & 4.133884e+06 & ▁▁▇▁▁ \\
+pop & Cote d'Ivoire & 0 & 1 & 1.801341e+07 & NA & 1.801341e+07 &
+1.801341e+07 & 1.801341e+07 & 1.801341e+07 & 1.801341e+07 & ▁▁▇▁▁ \\
+pop & Croatia & 0 & 1 & 4.493312e+06 & NA & 4.493312e+06 & 4.493312e+06
+& 4.493312e+06 & 4.493312e+06 & 4.493312e+06 & ▁▁▇▁▁ \\
+pop & Cuba & 0 & 1 & 1.141699e+07 & NA & 1.141699e+07 & 1.141699e+07 &
+1.141699e+07 & 1.141699e+07 & 1.141699e+07 & ▁▁▇▁▁ \\
+pop & Czech Republic & 0 & 1 & 1.022874e+07 & NA & 1.022874e+07 &
+1.022874e+07 & 1.022874e+07 & 1.022874e+07 & 1.022874e+07 & ▁▁▇▁▁ \\
+pop & Denmark & 0 & 1 & 5.468120e+06 & NA & 5.468120e+06 & 5.468120e+06
+& 5.468120e+06 & 5.468120e+06 & 5.468120e+06 & ▁▁▇▁▁ \\
+pop & Djibouti & 0 & 1 & 4.963740e+05 & NA & 4.963740e+05 & 4.963740e+05
+& 4.963740e+05 & 4.963740e+05 & 4.963740e+05 & ▁▁▇▁▁ \\
+pop & Dominican Republic & 0 & 1 & 9.319622e+06 & NA & 9.319622e+06 &
+9.319622e+06 & 9.319622e+06 & 9.319622e+06 & 9.319622e+06 & ▁▁▇▁▁ \\
+pop & Ecuador & 0 & 1 & 1.375568e+07 & NA & 1.375568e+07 & 1.375568e+07
+& 1.375568e+07 & 1.375568e+07 & 1.375568e+07 & ▁▁▇▁▁ \\
+pop & Egypt & 0 & 1 & 8.026454e+07 & NA & 8.026454e+07 & 8.026454e+07 &
+8.026454e+07 & 8.026454e+07 & 8.026454e+07 & ▁▁▇▁▁ \\
+pop & El Salvador & 0 & 1 & 6.939688e+06 & NA & 6.939688e+06 &
+6.939688e+06 & 6.939688e+06 & 6.939688e+06 & 6.939688e+06 & ▁▁▇▁▁ \\
+pop & Equatorial Guinea & 0 & 1 & 5.512010e+05 & NA & 5.512010e+05 &
+5.512010e+05 & 5.512010e+05 & 5.512010e+05 & 5.512010e+05 & ▁▁▇▁▁ \\
+pop & Eritrea & 0 & 1 & 4.906585e+06 & NA & 4.906585e+06 & 4.906585e+06
+& 4.906585e+06 & 4.906585e+06 & 4.906585e+06 & ▁▁▇▁▁ \\
+pop & Ethiopia & 0 & 1 & 7.651189e+07 & NA & 7.651189e+07 & 7.651189e+07
+& 7.651189e+07 & 7.651189e+07 & 7.651189e+07 & ▁▁▇▁▁ \\
+pop & Finland & 0 & 1 & 5.238460e+06 & NA & 5.238460e+06 & 5.238460e+06
+& 5.238460e+06 & 5.238460e+06 & 5.238460e+06 & ▁▁▇▁▁ \\
+pop & France & 0 & 1 & 6.108392e+07 & NA & 6.108392e+07 & 6.108392e+07 &
+6.108392e+07 & 6.108392e+07 & 6.108392e+07 & ▁▁▇▁▁ \\
+pop & Gabon & 0 & 1 & 1.454867e+06 & NA & 1.454867e+06 & 1.454867e+06 &
+1.454867e+06 & 1.454867e+06 & 1.454867e+06 & ▁▁▇▁▁ \\
+pop & Gambia & 0 & 1 & 1.688359e+06 & NA & 1.688359e+06 & 1.688359e+06 &
+1.688359e+06 & 1.688359e+06 & 1.688359e+06 & ▁▁▇▁▁ \\
+pop & Germany & 0 & 1 & 8.240100e+07 & NA & 8.240100e+07 & 8.240100e+07
+& 8.240100e+07 & 8.240100e+07 & 8.240100e+07 & ▁▁▇▁▁ \\
+pop & Ghana & 0 & 1 & 2.287334e+07 & NA & 2.287334e+07 & 2.287334e+07 &
+2.287334e+07 & 2.287334e+07 & 2.287334e+07 & ▁▁▇▁▁ \\
+pop & Greece & 0 & 1 & 1.070629e+07 & NA & 1.070629e+07 & 1.070629e+07 &
+1.070629e+07 & 1.070629e+07 & 1.070629e+07 & ▁▁▇▁▁ \\
+pop & Guatemala & 0 & 1 & 1.257293e+07 & NA & 1.257293e+07 &
+1.257293e+07 & 1.257293e+07 & 1.257293e+07 & 1.257293e+07 & ▁▁▇▁▁ \\
+pop & Guinea & 0 & 1 & 9.947814e+06 & NA & 9.947814e+06 & 9.947814e+06 &
+9.947814e+06 & 9.947814e+06 & 9.947814e+06 & ▁▁▇▁▁ \\
+pop & Guinea-Bissau & 0 & 1 & 1.472041e+06 & NA & 1.472041e+06 &
+1.472041e+06 & 1.472041e+06 & 1.472041e+06 & 1.472041e+06 & ▁▁▇▁▁ \\
+pop & Haiti & 0 & 1 & 8.502814e+06 & NA & 8.502814e+06 & 8.502814e+06 &
+8.502814e+06 & 8.502814e+06 & 8.502814e+06 & ▁▁▇▁▁ \\
+pop & Honduras & 0 & 1 & 7.483763e+06 & NA & 7.483763e+06 & 7.483763e+06
+& 7.483763e+06 & 7.483763e+06 & 7.483763e+06 & ▁▁▇▁▁ \\
+pop & Hong Kong, China & 0 & 1 & 6.980412e+06 & NA & 6.980412e+06 &
+6.980412e+06 & 6.980412e+06 & 6.980412e+06 & 6.980412e+06 & ▁▁▇▁▁ \\
+pop & Hungary & 0 & 1 & 9.956108e+06 & NA & 9.956108e+06 & 9.956108e+06
+& 9.956108e+06 & 9.956108e+06 & 9.956108e+06 & ▁▁▇▁▁ \\
+pop & Iceland & 0 & 1 & 3.019310e+05 & NA & 3.019310e+05 & 3.019310e+05
+& 3.019310e+05 & 3.019310e+05 & 3.019310e+05 & ▁▁▇▁▁ \\
+pop & India & 0 & 1 & 1.110396e+09 & NA & 1.110396e+09 & 1.110396e+09 &
+1.110396e+09 & 1.110396e+09 & 1.110396e+09 & ▁▁▇▁▁ \\
+pop & Indonesia & 0 & 1 & 2.235470e+08 & NA & 2.235470e+08 &
+2.235470e+08 & 2.235470e+08 & 2.235470e+08 & 2.235470e+08 & ▁▁▇▁▁ \\
+pop & Iran & 0 & 1 & 6.945357e+07 & NA & 6.945357e+07 & 6.945357e+07 &
+6.945357e+07 & 6.945357e+07 & 6.945357e+07 & ▁▁▇▁▁ \\
+pop & Iraq & 0 & 1 & 2.749964e+07 & NA & 2.749964e+07 & 2.749964e+07 &
+2.749964e+07 & 2.749964e+07 & 2.749964e+07 & ▁▁▇▁▁ \\
+pop & Ireland & 0 & 1 & 4.109086e+06 & NA & 4.109086e+06 & 4.109086e+06
+& 4.109086e+06 & 4.109086e+06 & 4.109086e+06 & ▁▁▇▁▁ \\
+pop & Israel & 0 & 1 & 6.426679e+06 & NA & 6.426679e+06 & 6.426679e+06 &
+6.426679e+06 & 6.426679e+06 & 6.426679e+06 & ▁▁▇▁▁ \\
+pop & Italy & 0 & 1 & 5.814773e+07 & NA & 5.814773e+07 & 5.814773e+07 &
+5.814773e+07 & 5.814773e+07 & 5.814773e+07 & ▁▁▇▁▁ \\
+pop & Jamaica & 0 & 1 & 2.780132e+06 & NA & 2.780132e+06 & 2.780132e+06
+& 2.780132e+06 & 2.780132e+06 & 2.780132e+06 & ▁▁▇▁▁ \\
+pop & Japan & 0 & 1 & 1.274680e+08 & NA & 1.274680e+08 & 1.274680e+08 &
+1.274680e+08 & 1.274680e+08 & 1.274680e+08 & ▁▁▇▁▁ \\
+pop & Jordan & 0 & 1 & 6.053193e+06 & NA & 6.053193e+06 & 6.053193e+06 &
+6.053193e+06 & 6.053193e+06 & 6.053193e+06 & ▁▁▇▁▁ \\
+pop & Kenya & 0 & 1 & 3.561018e+07 & NA & 3.561018e+07 & 3.561018e+07 &
+3.561018e+07 & 3.561018e+07 & 3.561018e+07 & ▁▁▇▁▁ \\
+pop & Korea, Dem. Rep. & 0 & 1 & 2.330173e+07 & NA & 2.330173e+07 &
+2.330173e+07 & 2.330173e+07 & 2.330173e+07 & 2.330173e+07 & ▁▁▇▁▁ \\
+pop & Korea, Rep. & 0 & 1 & 4.904479e+07 & NA & 4.904479e+07 &
+4.904479e+07 & 4.904479e+07 & 4.904479e+07 & 4.904479e+07 & ▁▁▇▁▁ \\
+pop & Kuwait & 0 & 1 & 2.505559e+06 & NA & 2.505559e+06 & 2.505559e+06 &
+2.505559e+06 & 2.505559e+06 & 2.505559e+06 & ▁▁▇▁▁ \\
+pop & Lebanon & 0 & 1 & 3.921278e+06 & NA & 3.921278e+06 & 3.921278e+06
+& 3.921278e+06 & 3.921278e+06 & 3.921278e+06 & ▁▁▇▁▁ \\
+pop & Lesotho & 0 & 1 & 2.012649e+06 & NA & 2.012649e+06 & 2.012649e+06
+& 2.012649e+06 & 2.012649e+06 & 2.012649e+06 & ▁▁▇▁▁ \\
+pop & Liberia & 0 & 1 & 3.193942e+06 & NA & 3.193942e+06 & 3.193942e+06
+& 3.193942e+06 & 3.193942e+06 & 3.193942e+06 & ▁▁▇▁▁ \\
+pop & Libya & 0 & 1 & 6.036914e+06 & NA & 6.036914e+06 & 6.036914e+06 &
+6.036914e+06 & 6.036914e+06 & 6.036914e+06 & ▁▁▇▁▁ \\
+pop & Madagascar & 0 & 1 & 1.916765e+07 & NA & 1.916765e+07 &
+1.916765e+07 & 1.916765e+07 & 1.916765e+07 & 1.916765e+07 & ▁▁▇▁▁ \\
+pop & Malawi & 0 & 1 & 1.332708e+07 & NA & 1.332708e+07 & 1.332708e+07 &
+1.332708e+07 & 1.332708e+07 & 1.332708e+07 & ▁▁▇▁▁ \\
+pop & Malaysia & 0 & 1 & 2.482129e+07 & NA & 2.482129e+07 & 2.482129e+07
+& 2.482129e+07 & 2.482129e+07 & 2.482129e+07 & ▁▁▇▁▁ \\
+pop & Mali & 0 & 1 & 1.203180e+07 & NA & 1.203180e+07 & 1.203180e+07 &
+1.203180e+07 & 1.203180e+07 & 1.203180e+07 & ▁▁▇▁▁ \\
+pop & Mauritania & 0 & 1 & 3.270065e+06 & NA & 3.270065e+06 &
+3.270065e+06 & 3.270065e+06 & 3.270065e+06 & 3.270065e+06 & ▁▁▇▁▁ \\
+pop & Mauritius & 0 & 1 & 1.250882e+06 & NA & 1.250882e+06 &
+1.250882e+06 & 1.250882e+06 & 1.250882e+06 & 1.250882e+06 & ▁▁▇▁▁ \\
+pop & Mexico & 0 & 1 & 1.087009e+08 & NA & 1.087009e+08 & 1.087009e+08 &
+1.087009e+08 & 1.087009e+08 & 1.087009e+08 & ▁▁▇▁▁ \\
+pop & Mongolia & 0 & 1 & 2.874127e+06 & NA & 2.874127e+06 & 2.874127e+06
+& 2.874127e+06 & 2.874127e+06 & 2.874127e+06 & ▁▁▇▁▁ \\
+pop & Montenegro & 0 & 1 & 6.847360e+05 & NA & 6.847360e+05 &
+6.847360e+05 & 6.847360e+05 & 6.847360e+05 & 6.847360e+05 & ▁▁▇▁▁ \\
+pop & Morocco & 0 & 1 & 3.375718e+07 & NA & 3.375718e+07 & 3.375718e+07
+& 3.375718e+07 & 3.375718e+07 & 3.375718e+07 & ▁▁▇▁▁ \\
+pop & Mozambique & 0 & 1 & 1.995166e+07 & NA & 1.995166e+07 &
+1.995166e+07 & 1.995166e+07 & 1.995166e+07 & 1.995166e+07 & ▁▁▇▁▁ \\
+pop & Myanmar & 0 & 1 & 4.776198e+07 & NA & 4.776198e+07 & 4.776198e+07
+& 4.776198e+07 & 4.776198e+07 & 4.776198e+07 & ▁▁▇▁▁ \\
+pop & Namibia & 0 & 1 & 2.055080e+06 & NA & 2.055080e+06 & 2.055080e+06
+& 2.055080e+06 & 2.055080e+06 & 2.055080e+06 & ▁▁▇▁▁ \\
+pop & Nepal & 0 & 1 & 2.890179e+07 & NA & 2.890179e+07 & 2.890179e+07 &
+2.890179e+07 & 2.890179e+07 & 2.890179e+07 & ▁▁▇▁▁ \\
+pop & Netherlands & 0 & 1 & 1.657061e+07 & NA & 1.657061e+07 &
+1.657061e+07 & 1.657061e+07 & 1.657061e+07 & 1.657061e+07 & ▁▁▇▁▁ \\
+pop & New Zealand & 0 & 1 & 4.115771e+06 & NA & 4.115771e+06 &
+4.115771e+06 & 4.115771e+06 & 4.115771e+06 & 4.115771e+06 & ▁▁▇▁▁ \\
+pop & Nicaragua & 0 & 1 & 5.675356e+06 & NA & 5.675356e+06 &
+5.675356e+06 & 5.675356e+06 & 5.675356e+06 & 5.675356e+06 & ▁▁▇▁▁ \\
+pop & Niger & 0 & 1 & 1.289487e+07 & NA & 1.289487e+07 & 1.289487e+07 &
+1.289487e+07 & 1.289487e+07 & 1.289487e+07 & ▁▁▇▁▁ \\
+pop & Nigeria & 0 & 1 & 1.350312e+08 & NA & 1.350312e+08 & 1.350312e+08
+& 1.350312e+08 & 1.350312e+08 & 1.350312e+08 & ▁▁▇▁▁ \\
+pop & Norway & 0 & 1 & 4.627926e+06 & NA & 4.627926e+06 & 4.627926e+06 &
+4.627926e+06 & 4.627926e+06 & 4.627926e+06 & ▁▁▇▁▁ \\
+pop & Oman & 0 & 1 & 3.204897e+06 & NA & 3.204897e+06 & 3.204897e+06 &
+3.204897e+06 & 3.204897e+06 & 3.204897e+06 & ▁▁▇▁▁ \\
+pop & Pakistan & 0 & 1 & 1.692706e+08 & NA & 1.692706e+08 & 1.692706e+08
+& 1.692706e+08 & 1.692706e+08 & 1.692706e+08 & ▁▁▇▁▁ \\
+pop & Panama & 0 & 1 & 3.242173e+06 & NA & 3.242173e+06 & 3.242173e+06 &
+3.242173e+06 & 3.242173e+06 & 3.242173e+06 & ▁▁▇▁▁ \\
+pop & Paraguay & 0 & 1 & 6.667147e+06 & NA & 6.667147e+06 & 6.667147e+06
+& 6.667147e+06 & 6.667147e+06 & 6.667147e+06 & ▁▁▇▁▁ \\
+pop & Peru & 0 & 1 & 2.867476e+07 & NA & 2.867476e+07 & 2.867476e+07 &
+2.867476e+07 & 2.867476e+07 & 2.867476e+07 & ▁▁▇▁▁ \\
+pop & Philippines & 0 & 1 & 9.107729e+07 & NA & 9.107729e+07 &
+9.107729e+07 & 9.107729e+07 & 9.107729e+07 & 9.107729e+07 & ▁▁▇▁▁ \\
+pop & Poland & 0 & 1 & 3.851824e+07 & NA & 3.851824e+07 & 3.851824e+07 &
+3.851824e+07 & 3.851824e+07 & 3.851824e+07 & ▁▁▇▁▁ \\
+pop & Portugal & 0 & 1 & 1.064284e+07 & NA & 1.064284e+07 & 1.064284e+07
+& 1.064284e+07 & 1.064284e+07 & 1.064284e+07 & ▁▁▇▁▁ \\
+pop & Puerto Rico & 0 & 1 & 3.942491e+06 & NA & 3.942491e+06 &
+3.942491e+06 & 3.942491e+06 & 3.942491e+06 & 3.942491e+06 & ▁▁▇▁▁ \\
+pop & Reunion & 0 & 1 & 7.980940e+05 & NA & 7.980940e+05 & 7.980940e+05
+& 7.980940e+05 & 7.980940e+05 & 7.980940e+05 & ▁▁▇▁▁ \\
+pop & Romania & 0 & 1 & 2.227606e+07 & NA & 2.227606e+07 & 2.227606e+07
+& 2.227606e+07 & 2.227606e+07 & 2.227606e+07 & ▁▁▇▁▁ \\
+pop & Rwanda & 0 & 1 & 8.860588e+06 & NA & 8.860588e+06 & 8.860588e+06 &
+8.860588e+06 & 8.860588e+06 & 8.860588e+06 & ▁▁▇▁▁ \\
+pop & Sao Tome and Principe & 0 & 1 & 1.995790e+05 & NA & 1.995790e+05 &
+1.995790e+05 & 1.995790e+05 & 1.995790e+05 & 1.995790e+05 & ▁▁▇▁▁ \\
+pop & Saudi Arabia & 0 & 1 & 2.760104e+07 & NA & 2.760104e+07 &
+2.760104e+07 & 2.760104e+07 & 2.760104e+07 & 2.760104e+07 & ▁▁▇▁▁ \\
+pop & Senegal & 0 & 1 & 1.226749e+07 & NA & 1.226749e+07 & 1.226749e+07
+& 1.226749e+07 & 1.226749e+07 & 1.226749e+07 & ▁▁▇▁▁ \\
+pop & Serbia & 0 & 1 & 1.015027e+07 & NA & 1.015027e+07 & 1.015027e+07 &
+1.015027e+07 & 1.015027e+07 & 1.015027e+07 & ▁▁▇▁▁ \\
+pop & Sierra Leone & 0 & 1 & 6.144562e+06 & NA & 6.144562e+06 &
+6.144562e+06 & 6.144562e+06 & 6.144562e+06 & 6.144562e+06 & ▁▁▇▁▁ \\
+pop & Singapore & 0 & 1 & 4.553009e+06 & NA & 4.553009e+06 &
+4.553009e+06 & 4.553009e+06 & 4.553009e+06 & 4.553009e+06 & ▁▁▇▁▁ \\
+pop & Slovak Republic & 0 & 1 & 5.447502e+06 & NA & 5.447502e+06 &
+5.447502e+06 & 5.447502e+06 & 5.447502e+06 & 5.447502e+06 & ▁▁▇▁▁ \\
+pop & Slovenia & 0 & 1 & 2.009245e+06 & NA & 2.009245e+06 & 2.009245e+06
+& 2.009245e+06 & 2.009245e+06 & 2.009245e+06 & ▁▁▇▁▁ \\
+pop & Somalia & 0 & 1 & 9.118773e+06 & NA & 9.118773e+06 & 9.118773e+06
+& 9.118773e+06 & 9.118773e+06 & 9.118773e+06 & ▁▁▇▁▁ \\
+pop & South Africa & 0 & 1 & 4.399783e+07 & NA & 4.399783e+07 &
+4.399783e+07 & 4.399783e+07 & 4.399783e+07 & 4.399783e+07 & ▁▁▇▁▁ \\
+pop & Spain & 0 & 1 & 4.044819e+07 & NA & 4.044819e+07 & 4.044819e+07 &
+4.044819e+07 & 4.044819e+07 & 4.044819e+07 & ▁▁▇▁▁ \\
+pop & Sri Lanka & 0 & 1 & 2.037824e+07 & NA & 2.037824e+07 &
+2.037824e+07 & 2.037824e+07 & 2.037824e+07 & 2.037824e+07 & ▁▁▇▁▁ \\
+pop & Sudan & 0 & 1 & 4.229293e+07 & NA & 4.229293e+07 & 4.229293e+07 &
+4.229293e+07 & 4.229293e+07 & 4.229293e+07 & ▁▁▇▁▁ \\
+pop & Swaziland & 0 & 1 & 1.133066e+06 & NA & 1.133066e+06 &
+1.133066e+06 & 1.133066e+06 & 1.133066e+06 & 1.133066e+06 & ▁▁▇▁▁ \\
+pop & Sweden & 0 & 1 & 9.031088e+06 & NA & 9.031088e+06 & 9.031088e+06 &
+9.031088e+06 & 9.031088e+06 & 9.031088e+06 & ▁▁▇▁▁ \\
+pop & Switzerland & 0 & 1 & 7.554661e+06 & NA & 7.554661e+06 &
+7.554661e+06 & 7.554661e+06 & 7.554661e+06 & 7.554661e+06 & ▁▁▇▁▁ \\
+pop & Syria & 0 & 1 & 1.931475e+07 & NA & 1.931475e+07 & 1.931475e+07 &
+1.931475e+07 & 1.931475e+07 & 1.931475e+07 & ▁▁▇▁▁ \\
+pop & Taiwan & 0 & 1 & 2.317429e+07 & NA & 2.317429e+07 & 2.317429e+07 &
+2.317429e+07 & 2.317429e+07 & 2.317429e+07 & ▁▁▇▁▁ \\
+pop & Tanzania & 0 & 1 & 3.813964e+07 & NA & 3.813964e+07 & 3.813964e+07
+& 3.813964e+07 & 3.813964e+07 & 3.813964e+07 & ▁▁▇▁▁ \\
+pop & Thailand & 0 & 1 & 6.506815e+07 & NA & 6.506815e+07 & 6.506815e+07
+& 6.506815e+07 & 6.506815e+07 & 6.506815e+07 & ▁▁▇▁▁ \\
+pop & Togo & 0 & 1 & 5.701579e+06 & NA & 5.701579e+06 & 5.701579e+06 &
+5.701579e+06 & 5.701579e+06 & 5.701579e+06 & ▁▁▇▁▁ \\
+pop & Trinidad and Tobago & 0 & 1 & 1.056608e+06 & NA & 1.056608e+06 &
+1.056608e+06 & 1.056608e+06 & 1.056608e+06 & 1.056608e+06 & ▁▁▇▁▁ \\
+pop & Tunisia & 0 & 1 & 1.027616e+07 & NA & 1.027616e+07 & 1.027616e+07
+& 1.027616e+07 & 1.027616e+07 & 1.027616e+07 & ▁▁▇▁▁ \\
+pop & Turkey & 0 & 1 & 7.115865e+07 & NA & 7.115865e+07 & 7.115865e+07 &
+7.115865e+07 & 7.115865e+07 & 7.115865e+07 & ▁▁▇▁▁ \\
+pop & Uganda & 0 & 1 & 2.917040e+07 & NA & 2.917040e+07 & 2.917040e+07 &
+2.917040e+07 & 2.917040e+07 & 2.917040e+07 & ▁▁▇▁▁ \\
+pop & United Kingdom & 0 & 1 & 6.077624e+07 & NA & 6.077624e+07 &
+6.077624e+07 & 6.077624e+07 & 6.077624e+07 & 6.077624e+07 & ▁▁▇▁▁ \\
+pop & United States & 0 & 1 & 3.011399e+08 & NA & 3.011399e+08 &
+3.011399e+08 & 3.011399e+08 & 3.011399e+08 & 3.011399e+08 & ▁▁▇▁▁ \\
+pop & Uruguay & 0 & 1 & 3.447496e+06 & NA & 3.447496e+06 & 3.447496e+06
+& 3.447496e+06 & 3.447496e+06 & 3.447496e+06 & ▁▁▇▁▁ \\
+pop & Venezuela & 0 & 1 & 2.608466e+07 & NA & 2.608466e+07 &
+2.608466e+07 & 2.608466e+07 & 2.608466e+07 & 2.608466e+07 & ▁▁▇▁▁ \\
+pop & Vietnam & 0 & 1 & 8.526236e+07 & NA & 8.526236e+07 & 8.526236e+07
+& 8.526236e+07 & 8.526236e+07 & 8.526236e+07 & ▁▁▇▁▁ \\
+pop & West Bank and Gaza & 0 & 1 & 4.018332e+06 & NA & 4.018332e+06 &
+4.018332e+06 & 4.018332e+06 & 4.018332e+06 & 4.018332e+06 & ▁▁▇▁▁ \\
+pop & Yemen, Rep. & 0 & 1 & 2.221174e+07 & NA & 2.221174e+07 &
+2.221174e+07 & 2.221174e+07 & 2.221174e+07 & 2.221174e+07 & ▁▁▇▁▁ \\
+pop & Zambia & 0 & 1 & 1.174604e+07 & NA & 1.174604e+07 & 1.174604e+07 &
+1.174604e+07 & 1.174604e+07 & 1.174604e+07 & ▁▁▇▁▁ \\
+pop & Zimbabwe & 0 & 1 & 1.231114e+07 & NA & 1.231114e+07 & 1.231114e+07
+& 1.231114e+07 & 1.231114e+07 & 1.231114e+07 & ▁▁▇▁▁ \\
+gdpPercap & Afghanistan & 0 & 1 & 9.745800e+02 & NA & 9.745800e+02 &
+9.745800e+02 & 9.745800e+02 & 9.745800e+02 & 9.745800e+02 & ▁▁▇▁▁ \\
+gdpPercap & Albania & 0 & 1 & 5.937030e+03 & NA & 5.937030e+03 &
+5.937030e+03 & 5.937030e+03 & 5.937030e+03 & 5.937030e+03 & ▁▁▇▁▁ \\
+gdpPercap & Algeria & 0 & 1 & 6.223370e+03 & NA & 6.223370e+03 &
+6.223370e+03 & 6.223370e+03 & 6.223370e+03 & 6.223370e+03 & ▁▁▇▁▁ \\
+gdpPercap & Angola & 0 & 1 & 4.797230e+03 & NA & 4.797230e+03 &
+4.797230e+03 & 4.797230e+03 & 4.797230e+03 & 4.797230e+03 & ▁▁▇▁▁ \\
+gdpPercap & Argentina & 0 & 1 & 1.277938e+04 & NA & 1.277938e+04 &
+1.277938e+04 & 1.277938e+04 & 1.277938e+04 & 1.277938e+04 & ▁▁▇▁▁ \\
+gdpPercap & Australia & 0 & 1 & 3.443537e+04 & NA & 3.443537e+04 &
+3.443537e+04 & 3.443537e+04 & 3.443537e+04 & 3.443537e+04 & ▁▁▇▁▁ \\
+gdpPercap & Austria & 0 & 1 & 3.612649e+04 & NA & 3.612649e+04 &
+3.612649e+04 & 3.612649e+04 & 3.612649e+04 & 3.612649e+04 & ▁▁▇▁▁ \\
+gdpPercap & Bahrain & 0 & 1 & 2.979605e+04 & NA & 2.979605e+04 &
+2.979605e+04 & 2.979605e+04 & 2.979605e+04 & 2.979605e+04 & ▁▁▇▁▁ \\
+gdpPercap & Bangladesh & 0 & 1 & 1.391250e+03 & NA & 1.391250e+03 &
+1.391250e+03 & 1.391250e+03 & 1.391250e+03 & 1.391250e+03 & ▁▁▇▁▁ \\
+gdpPercap & Belgium & 0 & 1 & 3.369261e+04 & NA & 3.369261e+04 &
+3.369261e+04 & 3.369261e+04 & 3.369261e+04 & 3.369261e+04 & ▁▁▇▁▁ \\
+gdpPercap & Benin & 0 & 1 & 1.441280e+03 & NA & 1.441280e+03 &
+1.441280e+03 & 1.441280e+03 & 1.441280e+03 & 1.441280e+03 & ▁▁▇▁▁ \\
+gdpPercap & Bolivia & 0 & 1 & 3.822140e+03 & NA & 3.822140e+03 &
+3.822140e+03 & 3.822140e+03 & 3.822140e+03 & 3.822140e+03 & ▁▁▇▁▁ \\
+gdpPercap & Bosnia and Herzegovina & 0 & 1 & 7.446300e+03 & NA &
+7.446300e+03 & 7.446300e+03 & 7.446300e+03 & 7.446300e+03 & 7.446300e+03
+& ▁▁▇▁▁ \\
+gdpPercap & Botswana & 0 & 1 & 1.256985e+04 & NA & 1.256985e+04 &
+1.256985e+04 & 1.256985e+04 & 1.256985e+04 & 1.256985e+04 & ▁▁▇▁▁ \\
+gdpPercap & Brazil & 0 & 1 & 9.065800e+03 & NA & 9.065800e+03 &
+9.065800e+03 & 9.065800e+03 & 9.065800e+03 & 9.065800e+03 & ▁▁▇▁▁ \\
+gdpPercap & Bulgaria & 0 & 1 & 1.068079e+04 & NA & 1.068079e+04 &
+1.068079e+04 & 1.068079e+04 & 1.068079e+04 & 1.068079e+04 & ▁▁▇▁▁ \\
+gdpPercap & Burkina Faso & 0 & 1 & 1.217030e+03 & NA & 1.217030e+03 &
+1.217030e+03 & 1.217030e+03 & 1.217030e+03 & 1.217030e+03 & ▁▁▇▁▁ \\
+gdpPercap & Burundi & 0 & 1 & 4.300700e+02 & NA & 4.300700e+02 &
+4.300700e+02 & 4.300700e+02 & 4.300700e+02 & 4.300700e+02 & ▁▁▇▁▁ \\
+gdpPercap & Cambodia & 0 & 1 & 1.713780e+03 & NA & 1.713780e+03 &
+1.713780e+03 & 1.713780e+03 & 1.713780e+03 & 1.713780e+03 & ▁▁▇▁▁ \\
+gdpPercap & Cameroon & 0 & 1 & 2.042100e+03 & NA & 2.042100e+03 &
+2.042100e+03 & 2.042100e+03 & 2.042100e+03 & 2.042100e+03 & ▁▁▇▁▁ \\
+gdpPercap & Canada & 0 & 1 & 3.631924e+04 & NA & 3.631924e+04 &
+3.631924e+04 & 3.631924e+04 & 3.631924e+04 & 3.631924e+04 & ▁▁▇▁▁ \\
+gdpPercap & Central African Republic & 0 & 1 & 7.060200e+02 & NA &
+7.060200e+02 & 7.060200e+02 & 7.060200e+02 & 7.060200e+02 & 7.060200e+02
+& ▁▁▇▁▁ \\
+gdpPercap & Chad & 0 & 1 & 1.704060e+03 & NA & 1.704060e+03 &
+1.704060e+03 & 1.704060e+03 & 1.704060e+03 & 1.704060e+03 & ▁▁▇▁▁ \\
+gdpPercap & Chile & 0 & 1 & 1.317164e+04 & NA & 1.317164e+04 &
+1.317164e+04 & 1.317164e+04 & 1.317164e+04 & 1.317164e+04 & ▁▁▇▁▁ \\
+gdpPercap & China & 0 & 1 & 4.959110e+03 & NA & 4.959110e+03 &
+4.959110e+03 & 4.959110e+03 & 4.959110e+03 & 4.959110e+03 & ▁▁▇▁▁ \\
+gdpPercap & Colombia & 0 & 1 & 7.006580e+03 & NA & 7.006580e+03 &
+7.006580e+03 & 7.006580e+03 & 7.006580e+03 & 7.006580e+03 & ▁▁▇▁▁ \\
+gdpPercap & Comoros & 0 & 1 & 9.861500e+02 & NA & 9.861500e+02 &
+9.861500e+02 & 9.861500e+02 & 9.861500e+02 & 9.861500e+02 & ▁▁▇▁▁ \\
+gdpPercap & Congo, Dem. Rep. & 0 & 1 & 2.775500e+02 & NA & 2.775500e+02
+& 2.775500e+02 & 2.775500e+02 & 2.775500e+02 & 2.775500e+02 & ▁▁▇▁▁ \\
+gdpPercap & Congo, Rep. & 0 & 1 & 3.632560e+03 & NA & 3.632560e+03 &
+3.632560e+03 & 3.632560e+03 & 3.632560e+03 & 3.632560e+03 & ▁▁▇▁▁ \\
+gdpPercap & Costa Rica & 0 & 1 & 9.645060e+03 & NA & 9.645060e+03 &
+9.645060e+03 & 9.645060e+03 & 9.645060e+03 & 9.645060e+03 & ▁▁▇▁▁ \\
+gdpPercap & Cote d'Ivoire & 0 & 1 & 1.544750e+03 & NA & 1.544750e+03 &
+1.544750e+03 & 1.544750e+03 & 1.544750e+03 & 1.544750e+03 & ▁▁▇▁▁ \\
+gdpPercap & Croatia & 0 & 1 & 1.461922e+04 & NA & 1.461922e+04 &
+1.461922e+04 & 1.461922e+04 & 1.461922e+04 & 1.461922e+04 & ▁▁▇▁▁ \\
+gdpPercap & Cuba & 0 & 1 & 8.948100e+03 & NA & 8.948100e+03 &
+8.948100e+03 & 8.948100e+03 & 8.948100e+03 & 8.948100e+03 & ▁▁▇▁▁ \\
+gdpPercap & Czech Republic & 0 & 1 & 2.283331e+04 & NA & 2.283331e+04 &
+2.283331e+04 & 2.283331e+04 & 2.283331e+04 & 2.283331e+04 & ▁▁▇▁▁ \\
+gdpPercap & Denmark & 0 & 1 & 3.527842e+04 & NA & 3.527842e+04 &
+3.527842e+04 & 3.527842e+04 & 3.527842e+04 & 3.527842e+04 & ▁▁▇▁▁ \\
+gdpPercap & Djibouti & 0 & 1 & 2.082480e+03 & NA & 2.082480e+03 &
+2.082480e+03 & 2.082480e+03 & 2.082480e+03 & 2.082480e+03 & ▁▁▇▁▁ \\
+gdpPercap & Dominican Republic & 0 & 1 & 6.025370e+03 & NA &
+6.025370e+03 & 6.025370e+03 & 6.025370e+03 & 6.025370e+03 & 6.025370e+03
+& ▁▁▇▁▁ \\
+gdpPercap & Ecuador & 0 & 1 & 6.873260e+03 & NA & 6.873260e+03 &
+6.873260e+03 & 6.873260e+03 & 6.873260e+03 & 6.873260e+03 & ▁▁▇▁▁ \\
+gdpPercap & Egypt & 0 & 1 & 5.581180e+03 & NA & 5.581180e+03 &
+5.581180e+03 & 5.581180e+03 & 5.581180e+03 & 5.581180e+03 & ▁▁▇▁▁ \\
+gdpPercap & El Salvador & 0 & 1 & 5.728350e+03 & NA & 5.728350e+03 &
+5.728350e+03 & 5.728350e+03 & 5.728350e+03 & 5.728350e+03 & ▁▁▇▁▁ \\
+gdpPercap & Equatorial Guinea & 0 & 1 & 1.215409e+04 & NA & 1.215409e+04
+& 1.215409e+04 & 1.215409e+04 & 1.215409e+04 & 1.215409e+04 & ▁▁▇▁▁ \\
+gdpPercap & Eritrea & 0 & 1 & 6.413700e+02 & NA & 6.413700e+02 &
+6.413700e+02 & 6.413700e+02 & 6.413700e+02 & 6.413700e+02 & ▁▁▇▁▁ \\
+gdpPercap & Ethiopia & 0 & 1 & 6.908100e+02 & NA & 6.908100e+02 &
+6.908100e+02 & 6.908100e+02 & 6.908100e+02 & 6.908100e+02 & ▁▁▇▁▁ \\
+gdpPercap & Finland & 0 & 1 & 3.320708e+04 & NA & 3.320708e+04 &
+3.320708e+04 & 3.320708e+04 & 3.320708e+04 & 3.320708e+04 & ▁▁▇▁▁ \\
+gdpPercap & France & 0 & 1 & 3.047002e+04 & NA & 3.047002e+04 &
+3.047002e+04 & 3.047002e+04 & 3.047002e+04 & 3.047002e+04 & ▁▁▇▁▁ \\
+gdpPercap & Gabon & 0 & 1 & 1.320648e+04 & NA & 1.320648e+04 &
+1.320648e+04 & 1.320648e+04 & 1.320648e+04 & 1.320648e+04 & ▁▁▇▁▁ \\
+gdpPercap & Gambia & 0 & 1 & 7.527500e+02 & NA & 7.527500e+02 &
+7.527500e+02 & 7.527500e+02 & 7.527500e+02 & 7.527500e+02 & ▁▁▇▁▁ \\
+gdpPercap & Germany & 0 & 1 & 3.217037e+04 & NA & 3.217037e+04 &
+3.217037e+04 & 3.217037e+04 & 3.217037e+04 & 3.217037e+04 & ▁▁▇▁▁ \\
+gdpPercap & Ghana & 0 & 1 & 1.327610e+03 & NA & 1.327610e+03 &
+1.327610e+03 & 1.327610e+03 & 1.327610e+03 & 1.327610e+03 & ▁▁▇▁▁ \\
+gdpPercap & Greece & 0 & 1 & 2.753841e+04 & NA & 2.753841e+04 &
+2.753841e+04 & 2.753841e+04 & 2.753841e+04 & 2.753841e+04 & ▁▁▇▁▁ \\
+gdpPercap & Guatemala & 0 & 1 & 5.186050e+03 & NA & 5.186050e+03 &
+5.186050e+03 & 5.186050e+03 & 5.186050e+03 & 5.186050e+03 & ▁▁▇▁▁ \\
+gdpPercap & Guinea & 0 & 1 & 9.426500e+02 & NA & 9.426500e+02 &
+9.426500e+02 & 9.426500e+02 & 9.426500e+02 & 9.426500e+02 & ▁▁▇▁▁ \\
+gdpPercap & Guinea-Bissau & 0 & 1 & 5.792300e+02 & NA & 5.792300e+02 &
+5.792300e+02 & 5.792300e+02 & 5.792300e+02 & 5.792300e+02 & ▁▁▇▁▁ \\
+gdpPercap & Haiti & 0 & 1 & 1.201640e+03 & NA & 1.201640e+03 &
+1.201640e+03 & 1.201640e+03 & 1.201640e+03 & 1.201640e+03 & ▁▁▇▁▁ \\
+gdpPercap & Honduras & 0 & 1 & 3.548330e+03 & NA & 3.548330e+03 &
+3.548330e+03 & 3.548330e+03 & 3.548330e+03 & 3.548330e+03 & ▁▁▇▁▁ \\
+gdpPercap & Hong Kong, China & 0 & 1 & 3.972498e+04 & NA & 3.972498e+04
+& 3.972498e+04 & 3.972498e+04 & 3.972498e+04 & 3.972498e+04 & ▁▁▇▁▁ \\
+gdpPercap & Hungary & 0 & 1 & 1.800894e+04 & NA & 1.800894e+04 &
+1.800894e+04 & 1.800894e+04 & 1.800894e+04 & 1.800894e+04 & ▁▁▇▁▁ \\
+gdpPercap & Iceland & 0 & 1 & 3.618079e+04 & NA & 3.618079e+04 &
+3.618079e+04 & 3.618079e+04 & 3.618079e+04 & 3.618079e+04 & ▁▁▇▁▁ \\
+gdpPercap & India & 0 & 1 & 2.452210e+03 & NA & 2.452210e+03 &
+2.452210e+03 & 2.452210e+03 & 2.452210e+03 & 2.452210e+03 & ▁▁▇▁▁ \\
+gdpPercap & Indonesia & 0 & 1 & 3.540650e+03 & NA & 3.540650e+03 &
+3.540650e+03 & 3.540650e+03 & 3.540650e+03 & 3.540650e+03 & ▁▁▇▁▁ \\
+gdpPercap & Iran & 0 & 1 & 1.160571e+04 & NA & 1.160571e+04 &
+1.160571e+04 & 1.160571e+04 & 1.160571e+04 & 1.160571e+04 & ▁▁▇▁▁ \\
+gdpPercap & Iraq & 0 & 1 & 4.471060e+03 & NA & 4.471060e+03 &
+4.471060e+03 & 4.471060e+03 & 4.471060e+03 & 4.471060e+03 & ▁▁▇▁▁ \\
+gdpPercap & Ireland & 0 & 1 & 4.067600e+04 & NA & 4.067600e+04 &
+4.067600e+04 & 4.067600e+04 & 4.067600e+04 & 4.067600e+04 & ▁▁▇▁▁ \\
+gdpPercap & Israel & 0 & 1 & 2.552328e+04 & NA & 2.552328e+04 &
+2.552328e+04 & 2.552328e+04 & 2.552328e+04 & 2.552328e+04 & ▁▁▇▁▁ \\
+gdpPercap & Italy & 0 & 1 & 2.856972e+04 & NA & 2.856972e+04 &
+2.856972e+04 & 2.856972e+04 & 2.856972e+04 & 2.856972e+04 & ▁▁▇▁▁ \\
+gdpPercap & Jamaica & 0 & 1 & 7.320880e+03 & NA & 7.320880e+03 &
+7.320880e+03 & 7.320880e+03 & 7.320880e+03 & 7.320880e+03 & ▁▁▇▁▁ \\
+gdpPercap & Japan & 0 & 1 & 3.165607e+04 & NA & 3.165607e+04 &
+3.165607e+04 & 3.165607e+04 & 3.165607e+04 & 3.165607e+04 & ▁▁▇▁▁ \\
+gdpPercap & Jordan & 0 & 1 & 4.519460e+03 & NA & 4.519460e+03 &
+4.519460e+03 & 4.519460e+03 & 4.519460e+03 & 4.519460e+03 & ▁▁▇▁▁ \\
+gdpPercap & Kenya & 0 & 1 & 1.463250e+03 & NA & 1.463250e+03 &
+1.463250e+03 & 1.463250e+03 & 1.463250e+03 & 1.463250e+03 & ▁▁▇▁▁ \\
+gdpPercap & Korea, Dem. Rep. & 0 & 1 & 1.593070e+03 & NA & 1.593070e+03
+& 1.593070e+03 & 1.593070e+03 & 1.593070e+03 & 1.593070e+03 & ▁▁▇▁▁ \\
+gdpPercap & Korea, Rep. & 0 & 1 & 2.334814e+04 & NA & 2.334814e+04 &
+2.334814e+04 & 2.334814e+04 & 2.334814e+04 & 2.334814e+04 & ▁▁▇▁▁ \\
+gdpPercap & Kuwait & 0 & 1 & 4.730699e+04 & NA & 4.730699e+04 &
+4.730699e+04 & 4.730699e+04 & 4.730699e+04 & 4.730699e+04 & ▁▁▇▁▁ \\
+gdpPercap & Lebanon & 0 & 1 & 1.046106e+04 & NA & 1.046106e+04 &
+1.046106e+04 & 1.046106e+04 & 1.046106e+04 & 1.046106e+04 & ▁▁▇▁▁ \\
+gdpPercap & Lesotho & 0 & 1 & 1.569330e+03 & NA & 1.569330e+03 &
+1.569330e+03 & 1.569330e+03 & 1.569330e+03 & 1.569330e+03 & ▁▁▇▁▁ \\
+gdpPercap & Liberia & 0 & 1 & 4.145100e+02 & NA & 4.145100e+02 &
+4.145100e+02 & 4.145100e+02 & 4.145100e+02 & 4.145100e+02 & ▁▁▇▁▁ \\
+gdpPercap & Libya & 0 & 1 & 1.205750e+04 & NA & 1.205750e+04 &
+1.205750e+04 & 1.205750e+04 & 1.205750e+04 & 1.205750e+04 & ▁▁▇▁▁ \\
+gdpPercap & Madagascar & 0 & 1 & 1.044770e+03 & NA & 1.044770e+03 &
+1.044770e+03 & 1.044770e+03 & 1.044770e+03 & 1.044770e+03 & ▁▁▇▁▁ \\
+gdpPercap & Malawi & 0 & 1 & 7.593500e+02 & NA & 7.593500e+02 &
+7.593500e+02 & 7.593500e+02 & 7.593500e+02 & 7.593500e+02 & ▁▁▇▁▁ \\
+gdpPercap & Malaysia & 0 & 1 & 1.245166e+04 & NA & 1.245166e+04 &
+1.245166e+04 & 1.245166e+04 & 1.245166e+04 & 1.245166e+04 & ▁▁▇▁▁ \\
+gdpPercap & Mali & 0 & 1 & 1.042580e+03 & NA & 1.042580e+03 &
+1.042580e+03 & 1.042580e+03 & 1.042580e+03 & 1.042580e+03 & ▁▁▇▁▁ \\
+gdpPercap & Mauritania & 0 & 1 & 1.803150e+03 & NA & 1.803150e+03 &
+1.803150e+03 & 1.803150e+03 & 1.803150e+03 & 1.803150e+03 & ▁▁▇▁▁ \\
+gdpPercap & Mauritius & 0 & 1 & 1.095699e+04 & NA & 1.095699e+04 &
+1.095699e+04 & 1.095699e+04 & 1.095699e+04 & 1.095699e+04 & ▁▁▇▁▁ \\
+gdpPercap & Mexico & 0 & 1 & 1.197757e+04 & NA & 1.197757e+04 &
+1.197757e+04 & 1.197757e+04 & 1.197757e+04 & 1.197757e+04 & ▁▁▇▁▁ \\
+gdpPercap & Mongolia & 0 & 1 & 3.095770e+03 & NA & 3.095770e+03 &
+3.095770e+03 & 3.095770e+03 & 3.095770e+03 & 3.095770e+03 & ▁▁▇▁▁ \\
+gdpPercap & Montenegro & 0 & 1 & 9.253900e+03 & NA & 9.253900e+03 &
+9.253900e+03 & 9.253900e+03 & 9.253900e+03 & 9.253900e+03 & ▁▁▇▁▁ \\
+gdpPercap & Morocco & 0 & 1 & 3.820180e+03 & NA & 3.820180e+03 &
+3.820180e+03 & 3.820180e+03 & 3.820180e+03 & 3.820180e+03 & ▁▁▇▁▁ \\
+gdpPercap & Mozambique & 0 & 1 & 8.236900e+02 & NA & 8.236900e+02 &
+8.236900e+02 & 8.236900e+02 & 8.236900e+02 & 8.236900e+02 & ▁▁▇▁▁ \\
+gdpPercap & Myanmar & 0 & 1 & 9.440000e+02 & NA & 9.440000e+02 &
+9.440000e+02 & 9.440000e+02 & 9.440000e+02 & 9.440000e+02 & ▁▁▇▁▁ \\
+gdpPercap & Namibia & 0 & 1 & 4.811060e+03 & NA & 4.811060e+03 &
+4.811060e+03 & 4.811060e+03 & 4.811060e+03 & 4.811060e+03 & ▁▁▇▁▁ \\
+gdpPercap & Nepal & 0 & 1 & 1.091360e+03 & NA & 1.091360e+03 &
+1.091360e+03 & 1.091360e+03 & 1.091360e+03 & 1.091360e+03 & ▁▁▇▁▁ \\
+gdpPercap & Netherlands & 0 & 1 & 3.679793e+04 & NA & 3.679793e+04 &
+3.679793e+04 & 3.679793e+04 & 3.679793e+04 & 3.679793e+04 & ▁▁▇▁▁ \\
+gdpPercap & New Zealand & 0 & 1 & 2.518501e+04 & NA & 2.518501e+04 &
+2.518501e+04 & 2.518501e+04 & 2.518501e+04 & 2.518501e+04 & ▁▁▇▁▁ \\
+gdpPercap & Nicaragua & 0 & 1 & 2.749320e+03 & NA & 2.749320e+03 &
+2.749320e+03 & 2.749320e+03 & 2.749320e+03 & 2.749320e+03 & ▁▁▇▁▁ \\
+gdpPercap & Niger & 0 & 1 & 6.196800e+02 & NA & 6.196800e+02 &
+6.196800e+02 & 6.196800e+02 & 6.196800e+02 & 6.196800e+02 & ▁▁▇▁▁ \\
+gdpPercap & Nigeria & 0 & 1 & 2.013980e+03 & NA & 2.013980e+03 &
+2.013980e+03 & 2.013980e+03 & 2.013980e+03 & 2.013980e+03 & ▁▁▇▁▁ \\
+gdpPercap & Norway & 0 & 1 & 4.935719e+04 & NA & 4.935719e+04 &
+4.935719e+04 & 4.935719e+04 & 4.935719e+04 & 4.935719e+04 & ▁▁▇▁▁ \\
+gdpPercap & Oman & 0 & 1 & 2.231619e+04 & NA & 2.231619e+04 &
+2.231619e+04 & 2.231619e+04 & 2.231619e+04 & 2.231619e+04 & ▁▁▇▁▁ \\
+gdpPercap & Pakistan & 0 & 1 & 2.605950e+03 & NA & 2.605950e+03 &
+2.605950e+03 & 2.605950e+03 & 2.605950e+03 & 2.605950e+03 & ▁▁▇▁▁ \\
+gdpPercap & Panama & 0 & 1 & 9.809190e+03 & NA & 9.809190e+03 &
+9.809190e+03 & 9.809190e+03 & 9.809190e+03 & 9.809190e+03 & ▁▁▇▁▁ \\
+gdpPercap & Paraguay & 0 & 1 & 4.172840e+03 & NA & 4.172840e+03 &
+4.172840e+03 & 4.172840e+03 & 4.172840e+03 & 4.172840e+03 & ▁▁▇▁▁ \\
+gdpPercap & Peru & 0 & 1 & 7.408910e+03 & NA & 7.408910e+03 &
+7.408910e+03 & 7.408910e+03 & 7.408910e+03 & 7.408910e+03 & ▁▁▇▁▁ \\
+gdpPercap & Philippines & 0 & 1 & 3.190480e+03 & NA & 3.190480e+03 &
+3.190480e+03 & 3.190480e+03 & 3.190480e+03 & 3.190480e+03 & ▁▁▇▁▁ \\
+gdpPercap & Poland & 0 & 1 & 1.538992e+04 & NA & 1.538992e+04 &
+1.538992e+04 & 1.538992e+04 & 1.538992e+04 & 1.538992e+04 & ▁▁▇▁▁ \\
+gdpPercap & Portugal & 0 & 1 & 2.050965e+04 & NA & 2.050965e+04 &
+2.050965e+04 & 2.050965e+04 & 2.050965e+04 & 2.050965e+04 & ▁▁▇▁▁ \\
+gdpPercap & Puerto Rico & 0 & 1 & 1.932871e+04 & NA & 1.932871e+04 &
+1.932871e+04 & 1.932871e+04 & 1.932871e+04 & 1.932871e+04 & ▁▁▇▁▁ \\
+gdpPercap & Reunion & 0 & 1 & 7.670120e+03 & NA & 7.670120e+03 &
+7.670120e+03 & 7.670120e+03 & 7.670120e+03 & 7.670120e+03 & ▁▁▇▁▁ \\
+gdpPercap & Romania & 0 & 1 & 1.080848e+04 & NA & 1.080848e+04 &
+1.080848e+04 & 1.080848e+04 & 1.080848e+04 & 1.080848e+04 & ▁▁▇▁▁ \\
+gdpPercap & Rwanda & 0 & 1 & 8.630900e+02 & NA & 8.630900e+02 &
+8.630900e+02 & 8.630900e+02 & 8.630900e+02 & 8.630900e+02 & ▁▁▇▁▁ \\
+gdpPercap & Sao Tome and Principe & 0 & 1 & 1.598440e+03 & NA &
+1.598440e+03 & 1.598440e+03 & 1.598440e+03 & 1.598440e+03 & 1.598440e+03
+& ▁▁▇▁▁ \\
+gdpPercap & Saudi Arabia & 0 & 1 & 2.165483e+04 & NA & 2.165483e+04 &
+2.165483e+04 & 2.165483e+04 & 2.165483e+04 & 2.165483e+04 & ▁▁▇▁▁ \\
+gdpPercap & Senegal & 0 & 1 & 1.712470e+03 & NA & 1.712470e+03 &
+1.712470e+03 & 1.712470e+03 & 1.712470e+03 & 1.712470e+03 & ▁▁▇▁▁ \\
+gdpPercap & Serbia & 0 & 1 & 9.786530e+03 & NA & 9.786530e+03 &
+9.786530e+03 & 9.786530e+03 & 9.786530e+03 & 9.786530e+03 & ▁▁▇▁▁ \\
+gdpPercap & Sierra Leone & 0 & 1 & 8.625400e+02 & NA & 8.625400e+02 &
+8.625400e+02 & 8.625400e+02 & 8.625400e+02 & 8.625400e+02 & ▁▁▇▁▁ \\
+gdpPercap & Singapore & 0 & 1 & 4.714318e+04 & NA & 4.714318e+04 &
+4.714318e+04 & 4.714318e+04 & 4.714318e+04 & 4.714318e+04 & ▁▁▇▁▁ \\
+gdpPercap & Slovak Republic & 0 & 1 & 1.867831e+04 & NA & 1.867831e+04 &
+1.867831e+04 & 1.867831e+04 & 1.867831e+04 & 1.867831e+04 & ▁▁▇▁▁ \\
+gdpPercap & Slovenia & 0 & 1 & 2.576826e+04 & NA & 2.576826e+04 &
+2.576826e+04 & 2.576826e+04 & 2.576826e+04 & 2.576826e+04 & ▁▁▇▁▁ \\
+gdpPercap & Somalia & 0 & 1 & 9.261400e+02 & NA & 9.261400e+02 &
+9.261400e+02 & 9.261400e+02 & 9.261400e+02 & 9.261400e+02 & ▁▁▇▁▁ \\
+gdpPercap & South Africa & 0 & 1 & 9.269660e+03 & NA & 9.269660e+03 &
+9.269660e+03 & 9.269660e+03 & 9.269660e+03 & 9.269660e+03 & ▁▁▇▁▁ \\
+gdpPercap & Spain & 0 & 1 & 2.882106e+04 & NA & 2.882106e+04 &
+2.882106e+04 & 2.882106e+04 & 2.882106e+04 & 2.882106e+04 & ▁▁▇▁▁ \\
+gdpPercap & Sri Lanka & 0 & 1 & 3.970100e+03 & NA & 3.970100e+03 &
+3.970100e+03 & 3.970100e+03 & 3.970100e+03 & 3.970100e+03 & ▁▁▇▁▁ \\
+gdpPercap & Sudan & 0 & 1 & 2.602390e+03 & NA & 2.602390e+03 &
+2.602390e+03 & 2.602390e+03 & 2.602390e+03 & 2.602390e+03 & ▁▁▇▁▁ \\
+gdpPercap & Swaziland & 0 & 1 & 4.513480e+03 & NA & 4.513480e+03 &
+4.513480e+03 & 4.513480e+03 & 4.513480e+03 & 4.513480e+03 & ▁▁▇▁▁ \\
+gdpPercap & Sweden & 0 & 1 & 3.385975e+04 & NA & 3.385975e+04 &
+3.385975e+04 & 3.385975e+04 & 3.385975e+04 & 3.385975e+04 & ▁▁▇▁▁ \\
+gdpPercap & Switzerland & 0 & 1 & 3.750642e+04 & NA & 3.750642e+04 &
+3.750642e+04 & 3.750642e+04 & 3.750642e+04 & 3.750642e+04 & ▁▁▇▁▁ \\
+gdpPercap & Syria & 0 & 1 & 4.184550e+03 & NA & 4.184550e+03 &
+4.184550e+03 & 4.184550e+03 & 4.184550e+03 & 4.184550e+03 & ▁▁▇▁▁ \\
+gdpPercap & Taiwan & 0 & 1 & 2.871828e+04 & NA & 2.871828e+04 &
+2.871828e+04 & 2.871828e+04 & 2.871828e+04 & 2.871828e+04 & ▁▁▇▁▁ \\
+gdpPercap & Tanzania & 0 & 1 & 1.107480e+03 & NA & 1.107480e+03 &
+1.107480e+03 & 1.107480e+03 & 1.107480e+03 & 1.107480e+03 & ▁▁▇▁▁ \\
+gdpPercap & Thailand & 0 & 1 & 7.458400e+03 & NA & 7.458400e+03 &
+7.458400e+03 & 7.458400e+03 & 7.458400e+03 & 7.458400e+03 & ▁▁▇▁▁ \\
+gdpPercap & Togo & 0 & 1 & 8.829700e+02 & NA & 8.829700e+02 &
+8.829700e+02 & 8.829700e+02 & 8.829700e+02 & 8.829700e+02 & ▁▁▇▁▁ \\
+gdpPercap & Trinidad and Tobago & 0 & 1 & 1.800851e+04 & NA &
+1.800851e+04 & 1.800851e+04 & 1.800851e+04 & 1.800851e+04 & 1.800851e+04
+& ▁▁▇▁▁ \\
+gdpPercap & Tunisia & 0 & 1 & 7.092920e+03 & NA & 7.092920e+03 &
+7.092920e+03 & 7.092920e+03 & 7.092920e+03 & 7.092920e+03 & ▁▁▇▁▁ \\
+gdpPercap & Turkey & 0 & 1 & 8.458280e+03 & NA & 8.458280e+03 &
+8.458280e+03 & 8.458280e+03 & 8.458280e+03 & 8.458280e+03 & ▁▁▇▁▁ \\
+gdpPercap & Uganda & 0 & 1 & 1.056380e+03 & NA & 1.056380e+03 &
+1.056380e+03 & 1.056380e+03 & 1.056380e+03 & 1.056380e+03 & ▁▁▇▁▁ \\
+gdpPercap & United Kingdom & 0 & 1 & 3.320326e+04 & NA & 3.320326e+04 &
+3.320326e+04 & 3.320326e+04 & 3.320326e+04 & 3.320326e+04 & ▁▁▇▁▁ \\
+gdpPercap & United States & 0 & 1 & 4.295165e+04 & NA & 4.295165e+04 &
+4.295165e+04 & 4.295165e+04 & 4.295165e+04 & 4.295165e+04 & ▁▁▇▁▁ \\
+gdpPercap & Uruguay & 0 & 1 & 1.061146e+04 & NA & 1.061146e+04 &
+1.061146e+04 & 1.061146e+04 & 1.061146e+04 & 1.061146e+04 & ▁▁▇▁▁ \\
+gdpPercap & Venezuela & 0 & 1 & 1.141581e+04 & NA & 1.141581e+04 &
+1.141581e+04 & 1.141581e+04 & 1.141581e+04 & 1.141581e+04 & ▁▁▇▁▁ \\
+gdpPercap & Vietnam & 0 & 1 & 2.441580e+03 & NA & 2.441580e+03 &
+2.441580e+03 & 2.441580e+03 & 2.441580e+03 & 2.441580e+03 & ▁▁▇▁▁ \\
+gdpPercap & West Bank and Gaza & 0 & 1 & 3.025350e+03 & NA &
+3.025350e+03 & 3.025350e+03 & 3.025350e+03 & 3.025350e+03 & 3.025350e+03
+& ▁▁▇▁▁ \\
+gdpPercap & Yemen, Rep. & 0 & 1 & 2.280770e+03 & NA & 2.280770e+03 &
+2.280770e+03 & 2.280770e+03 & 2.280770e+03 & 2.280770e+03 & ▁▁▇▁▁ \\
+gdpPercap & Zambia & 0 & 1 & 1.271210e+03 & NA & 1.271210e+03 &
+1.271210e+03 & 1.271210e+03 & 1.271210e+03 & 1.271210e+03 & ▁▁▇▁▁ \\
+gdpPercap & Zimbabwe & 0 & 1 & 4.697100e+02 & NA & 4.697100e+02 &
+4.697100e+02 & 4.697100e+02 & 4.697100e+02 & 4.697100e+02 & ▁▁▇▁▁ \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\includegraphics{test_files/figure-latex/pressure-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}
